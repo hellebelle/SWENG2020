@@ -340,7 +340,7 @@ var jsc = {
 			x += viewPos[0];
 			y += viewPos[1];
 		}
-		return [x, y];
+		return [x-200, y+36];
 	},
 
 
