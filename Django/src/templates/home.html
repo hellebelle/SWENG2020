@@ -10,6 +10,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
   body {
+
       position: relative;
   }
   #section1 {padding-top:50px;height:500px;color: #fff; background-color: #1E88E5;}
@@ -40,12 +41,14 @@
   #section25 {padding-top:50px;height:500px;color: #fff; background-color: #00ff80;}
   #section26 {padding-top:50px;height:500px;color: #fff; background-color: #00ffb3;}
   #book {padding-top: 50px; height:300px; color: white; margin-left: 100px; width:217px;}
+  #bookImage{padding-top: 10px; margin-left: 100px;}
   #bookTitle{margin-left: 150px}
+  #link {margin-left:-150px; color:black; margin-bottom: 150px;}
   </style>
 
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
-
+{% load static %}
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -94,11 +97,12 @@
 <div id="section1" class="container-fluid">
   <h1>A</h1>
   <div >
-    {% load static %}
-     <!-- <button id="book" style="background: src {% static "bookCover1.jpg" %}"></button>-->
-      <figure>
-      <img src = "{% static './images/bookCover1.jpg'%}" style = "width:100%">
-        </figure>
+      {% load static %}
+
+      <img id = "bookImage"src = "{% static 'images/bookCover1.jpg'%}">
+
+
+      <a id = "link" href="{% url 'editor' %}">Read me</a>
       <h4 id = "bookTitle">Title</h4>
       <h4 id = "bookTitle">Author</h4>
   </div>
