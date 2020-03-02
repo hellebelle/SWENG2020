@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
+    <link rel='stylesheet' href='spectrum.css' />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
      <link rel="stylesheet" href="style.css">
     <title>Dyslexic Friendly Books</title>
@@ -20,9 +20,17 @@
       document.body.style.fontSize = size;
     }
 
+    function changeBodyLineSpacing(size){
+      document.body.style.lineHeight = size;
+    }
+
      function changeFontColor(fontColor){
        text = document.getElementById( 'textBox' );
-       text.style.color = fontColor;
+       text.style.color = '#' + fontColor.toString();
+    }
+
+    function changeFont(font){
+        document.getElementById('textBox').style.fontFamily = font.value;
     }
 
 
@@ -30,12 +38,12 @@
   <body>
 
 
-    <nav class="navbar fixed-top  navbar-expand-lg navbar-light bg-primary ">
-  <a class="navbar-brand" style = "color:white " href="#">Dyslexic Friendly Books</a>
+  <nav class="navbar fixed-top  navbar-expand-lg navbar-light bg-primary ">
+    <a class="navbar-brand" style = "color:white " href="#">Dyslexic Friendly Books</a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
+    </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
@@ -44,7 +52,7 @@
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
-</nav>
+    </nav>
 
     <div class = "container-fluid" style = "margin-top: 120px" >
       <div class="row">
@@ -53,6 +61,7 @@
                 <h3> Editor </h3>
               </div>
               <h4> Background Color </h4>
+
               <script src="jscolor.js"></script>
               <button class="jscolor {valueElement:'chosen-value', onFineChange:'changeBodyBg(this)'}"; style="font-size : 20px";>
             		Background Colour
@@ -60,48 +69,80 @@
               <!--<button  type="button" onclick="changeBodyBg('#EBE3E1');" class="btn btn-primary" style = "background-color:#EBE3E1 "> Beige</button>
               <button type="button" onclick="changeBodyBg('#8EE1FB');" class="btn btn-primary" style = "background-color:#8EE1FB "> Bllue</button>
               <button type="button" onclick="changeBodyBg('#F9B8F5');" class="btn btn-primary" style = "background-color:#F9B8F5 "> Pink</button>
-              <button type="button" onclick="changeBodyBg('black');" class="btn btn-primary" style = "background-color:#B8B6B6" > Black </button>
-            </div> -->
+              <button type="button" onclick="changeBodyBg('black');" class="btn btn-primary" style = "background-color:#B8B6B6" > Black </button>-->
+            </div>
+
+            <!-- This draws out the Change Font Size part in settings -->
             <div style = "padding-top: 30px">
               <h4> Font Size</h4>
-              <!--<button type="button" onclick="changeBodyText('75%');" class="btn btn-secondary ">Small</button>
-              <button type="button" onclick="changeBodyText('125%');" class="btn btn-secondary">Medium</button>
-              <button type="button" onclick="changeBodyText('150%');" class="btn btn-secondary">Large</button>-->
               <div class="btn-group" role="group" aria-label="Basic example" >
                 <button type="button" onclick="changeBodyText('75%')" class="btn btn-secondary">Small</button>
                 <button type="button" onclick="changeBodyText('125%')"class="btn btn-secondary">Medium</button>
                 <button type="button" onclick="changeBodyText('150%')"class="btn btn-secondary">Large</button>
               </div>
             </div>
+
+            <!-- This draws out the dropdown table for choosing a font -->
             <div style = "padding-top: 30px">
               <h4> Font Family</h4>
               <div class="dropdown">
                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                  Choose a Font
                  </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="#">Font1</a>
-                      <a class="dropdown-item" href="#">Font2</a>
-                      <a class="dropdown-item" href="#">Font3</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" onchange="changeFont (this)">
+                      <!--<a class="dropdown-item" value = "Times New Roman" href="#">Times New Roman</a> -->
+
+                      <!--
+                      <select id="input-font" class="input"  onchange="changeFont (this);">
+                      <option value="Times New Roman" selected ="selected">Times New Roman</option>
+                      <option value="Arial">Arial</option>
+                      -->
+
+                      <a class="dropdown-item"  onlick="changeFont('Times New Roman')" href="#">Times New Roman</a>
+                      <a class="dropdown-item"  onlick="changeFont('Comic Sans')" href="#">Comic Sans</a>
+                      <a class="dropdown-item"  onlick="changeFont('Arial')" href="#">Arial</a>
+                      <!--
+                      <button class="dropdown-item" type="button" onclick="changeFont ('Times New Roman')">Times New Roman</button>
+                      <button class="dropdown-item" type="button" onclick="changeFont ('Comic Sans')">Comic Sans</button>
+                      <button class="dropdown-item" type="button" onclick="changeFont ('Arial')">Arial</button>
+                    -->
+
                     </div>
               </div>
             </div>
+
+            <!-- This draws out the slider to select Line Spacing -->
             <div style = "padding-top: 30px">
               <h4> Line Spacing</h4>
+              <form class="range-field my-4 w-25">
+                  <input type="range" min="0" max="100" />
+              </form>
             </div>
+
+            <!-- This draws out the colour palete for selecting font colour -->
             <div style = "padding-top: 30px">
               <h4> Font Color</h4>
+
                 <button  type="button" onclick="changeFontColor('white');" class="btn btn-primary" style = "background-color:#EBE3E1 "> White </button>
       	        <button  type="button" onclick="changeFontColor('yellow');" class="btn btn-primary" style = "background-color:#F3F688 "> Yellow </button>
 
-            </div>
 
+              <button class="jscolor {valueElement:'chosen-value', onFineChange:'changeFontColor(this)'}"; style="font-size : 20px";>
+                Choose Font Colour
+            	</button>
+
+            </div>
         </div>
+
         <div class="col-sm-7" style = "margin-left: 75px" >
          <div  id= "textBox"  >
           <div style = "padding-top: 15px">
 
-What is Lorem Ipsum?
+  <div id= "textBox" class="col-sm-7" style="margin-left: 50px">
+    <div style="padding-top: 15px">     <!-- style="line-height: 2" -->
+
+
+      What is Lorem Ipsum?
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. <mark> Lorem Ipsum </mark>has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type <mark>specimen book</mark>. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
 Why do we use it?
@@ -142,6 +183,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
 
 Where can I get some?
 There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+
 </div>
 	</div>
     </div>
