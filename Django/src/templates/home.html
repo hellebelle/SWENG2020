@@ -42,7 +42,7 @@
   #section26 {padding-top:50px;height:500px;color: #fff; background-color: #00ffb3;}
   #book {padding-top: 50px; height:300px; color: white; margin-left: 100px; width:217px;}
   #bookImage{padding-top: 10px; margin-left: 100px;}
-  #bookTitle{margin-left: 150px}
+  #bookTitle{margin-left: 120px}
   #link {margin-left:-150px; color:black; margin-bottom: 150px;}
   </style>
 
@@ -96,15 +96,15 @@
 
 <div id="section1" class="container-fluid">
   <h1>A</h1>
-  <div >
+  <div style="height:35vh">
       {% load static %}
-
+       <a href="{% url 'editor' %}">
       <img id = "bookImage"src = "{% static 'images/bookCover1.jpg'%}">
+       </a>
 
 
-      <a id = "link" href="{% url 'editor' %}">Read me</a>
-      <h4 id = "bookTitle">Title</h4>
-      <h4 id = "bookTitle">Author</h4>
+      <h4 id = "bookTitle">Are You My Mother?</h4>
+      <h4 id = "bookTitle">P.D. Eastman</h4>
   </div>
 </div>
 <div id="section2" class="container-fluid">
