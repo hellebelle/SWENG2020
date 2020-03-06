@@ -4,8 +4,8 @@ from gutenberg.query import get_etexts
 from gutenberg.query import get_metadata
 
 import nltk
-# nltk.download('punkt')
-# nltk.download('averaged_perceptron_tagger')
+#nltk.download('punkt')
+#nltk.download('averaged_perceptron_tagger')
 
 def findBookByAuthor(bookAuthor):
     bookName = get_etexts('author', bookAuthor)  
