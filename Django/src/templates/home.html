@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+  <title>Home Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+  body {
+
+      position: relative;
+  }
+  #section1 {padding-top:50px;height:500px;color: #fff; background-color: #1E88E5;}
+  #section2 {padding-top:50px;height:500px;color: #fff; background-color: #673ab7;}
+  #section3 {padding-top:50px;height:500px;color: #fff; background-color: #ff9800;}
+  #section4 {padding-top:50px;height:500px;color: #fff; background-color: #ffcc00;}
+  #section5 {padding-top:50px;height:500px;color: #fff; background-color: #ffff00;}
+  #section6 {padding-top:50px;height:500px;color: #fff; background-color: #bfff00;}
+  #section7 {padding-top:50px;height:500px;color: #fff; background-color: #6aff00;}
+  #section8 {padding-top:50px;height:500px;color: #fff; background-color: #00ff80;}
+  #section9 {padding-top:50px;height:500px;color: #fff; background-color: #00ffb3;}
+  #section10 {padding-top:50px;height:500px;color: #fff; background-color: #00ffe1;}
+  #section11 {padding-top:50px;height:500px;color: #fff; background-color: #00c8ff;}
+  #section12 {padding-top:50px;height:500px;color: #fff; background-color: #006eff;}
+  #section13 {padding-top:50px;height:500px;color: #fff; background-color: #0033ff;}
+  #section14 {padding-top:50px;height:500px;color: #fff; background-color: #4c00ff;}
+  #section15 {padding-top:50px;height:500px;color: #fff; background-color: #8c00ff;}
+  #section16 {padding-top:50px;height:500px;color: #fff; background-color: #bf00ff;}
+  #section17 {padding-top:50px;height:500px;color: #fff; background-color: #f700ff;}
+  #section18 {padding-top:50px;height:500px;color: #fff; background-color: #ff0080;}
+  #section19 {padding-top:50px;height:500px;color: #fff; background-color: #ff0051;}
+  #section20 {padding-top:50px;height:500px;color: #fff; background-color: #ff002f;}
+  #section21 {padding-top:50px;height:500px;color: #fff; background-color: #ff9800;}
+  #section22 {padding-top:50px;height:500px;color: #fff; background-color: #ffcc00;}
+  #section23 {padding-top:50px;height:500px;color: #fff; background-color: #ffff00;}
+  #section24 {padding-top:50px;height:500px;color: #fff; background-color: #bfff00;}
+  #section25 {padding-top:50px;height:500px;color: #fff; background-color: #6aff00;}
+  #section25 {padding-top:50px;height:500px;color: #fff; background-color: #00ff80;}
+  #section26 {padding-top:50px;height:500px;color: #fff; background-color: #00ffb3;}
+  #book {padding-top: 50px; height:300px; color: white; margin-left: 100px; width:217px;}
+  #bookImage{padding-top: 10px; margin-left: 100px;}
+  #bookTitle{margin-left: 120px}
+  #link {margin-left:-150px; color:black; margin-bottom: 150px;}
+  </style>
+
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+{% load static %}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Dsylexic Friendly Books</a>
+    </div>
+    <div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav" style ="margin-left: 20px">
+          <li><a href="#section1">A</a></li>
+          <li><a href="#section2">B</a></li>
+          <li><a href="#section3">C</a></li>
+          <li><a href="#section4">D</a></li>
+          <li><a href="#section5">E</a></li>
+          <li><a href="#section6">F</a></li>
+          <li><a href="#section7">G</a></li>
+          <li><a href="#section8">H</a></li>
+          <li><a href="#section9">I</a></li>
+          <li><a href="#section10">J</a></li>
+          <li><a href="#section11">K</a></li>
+          <li><a href="#section12">L</a></li>
+          <li><a href="#section13">M</a></li>
+          <li><a href="#section14">N</a></li>
+          <li><a href="#section15">O</a></li>
+          <li><a href="#section16">P</a></li>
+          <li><a href="#section17">Q</a></li>
+          <li><a href="#section18">R</a></li>
+          <li><a href="#section19">S</a></li>
+          <li><a href="#section20">T</a></li>
+          <li><a href="#section21">U</a></li>
+          <li><a href="#section22">V</a></li>
+          <li><a href="#section23">W</a></li>
+          <li><a href="#section24">X</a></li>
+          <li><a href="#section25">Y</a></li>
+          <li><a href="#section26">Z</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div id="section1" class="container-fluid">
+  <h1>A</h1>
+  <div style="height:35vh">
+      {% load static %}
+       <a href="{% url 'editor' %}">
+      <img id = "bookImage"src = "{% static 'images/bookCover1.jpg'%}">
+       </a>
+
+
+      <h4 id = "bookTitle">Are You My Mother?</h4>
+      <h4 id = "bookTitle">P.D. Eastman</h4>
+  </div>
+</div>
+<div id="section2" class="container-fluid">
+  <h1>B</h1>
+
+</div>
+<div id="section3" class="container-fluid">
+  <h1>C</h1>
+
+</div>
+<div id="section4" class="container-fluid">
+  <h1>D</h1>
+
+</div>
+<div id="section5" class="container-fluid">
+  <h1>E</h1>
+
+</div>
+<div id="section6" class="container-fluid">
+  <h1>F</h1>
+
+</div>
+<div id="section7" class="container-fluid">
+  <h1>G</h1>
+
+</div>
+<div id="section8" class="container-fluid">
+  <h1>H</h1>
+
+</div>
+<div id="section9" class="container-fluid">
+  <h1>I</h1>
+
+</div>
+<div id="section10" class="container-fluid">
+  <h1>J</h1>
+
+</div>
+<div id="section11" class="container-fluid">
+  <h1>K</h1>
+
+</div>
+<div id="section12" class="container-fluid">
+  <h1>L</h1>
+
+</div>
+<div id="section13" class="container-fluid">
+  <h1>M</h1>
+
+</div>
+<div id="section14" class="container-fluid">
+  <h1>N</h1>
+
+</div>
+<div id="section15" class="container-fluid">
+  <h1>O</h1>
+
+</div>
+<div id="section16" class="container-fluid">
+  <h1>P</h1>
+
+</div>
+<div id="section17" class="container-fluid">
+  <h1>Q</h1>
+
+</div>
+<div id="section18" class="container-fluid">
+  <h1>R</h1>
+
+</div>
+<div id="section19" class="container-fluid">
+  <h1>S</h1>
+
+</div>
+<div id="section20" class="container-fluid">
+  <h1>T</h1>
+
+</div>
+<div id="section21" class="container-fluid">
+  <h1>U</h1>
+
+</div>
+<div id="section22" class="container-fluid">
+  <h1>V</h1>
+
+</div>
+<div id="section23" class="container-fluid">
+  <h1>W</h1>
+
+</div>
+<div id="section24" class="container-fluid">
+  <h1>X</h1>
+
+</div>
+<div id="section25" class="container-fluid">
+  <h1>Y</h1>
+
+</div>
+<div id="section26" class="container-fluid">
+  <h1>Z</h1>
+
+</div>
+
+
+</body>
+</html>

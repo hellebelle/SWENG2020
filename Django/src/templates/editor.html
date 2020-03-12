@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+
+     <div class = "container-fluid" >
+      <div class="row">
+        <div class="col-sm-2" >
+            <div>
+              <div style ="margin-bottom: 20px">
+                <h3> Editor </h3>
+              </div>
+              <h4> Background Color </h4>
+
+              <script src="jscolor.js"></script>
+              <button class="jscolor {valueElement:'chosen-value', onFineChange:'changeBodyBg(this)'}"; style="font-size : 20px";>
+                    Background Colour
+                </button>
+            </div>
+
+            <!-- This draws out the Change Font Size part in settings -->
+            <div style = "padding-top: 30px">
+              <h4> Font Size</h4>
+              <div class="btn-group" role="group" aria-label="Basic example" >
+                <button type="button" onclick="changeBodyText('75%')" class="btn btn-secondary">Small</button>
+                <button type="button" onclick="changeBodyText('125%')"class="btn btn-secondary">Medium</button>
+                <button type="button" onclick="changeBodyText('150%')"class="btn btn-secondary">Large</button>
+              </div>
+            </div>
+
+            <!-- This draws out the dropdown table for choosing a font -->
+            <div style = "padding-top: 30px">
+              <h4> Font Family</h4>
+              <div class="dropdown">
+                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Choose a Font
+                 </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" onchange="changeFont (this)">
+                      <a class="dropdown-item" href="javascript:changeFont('serif')">Times New Roman</a>
+                      <a class="dropdown-item" href="javascript:changeFont('sans-serif')">Arial</a>
+                      <a class="dropdown-item" href="javascript:changeFont('georgia')">Georgia</a>
+                      <a class="dropdown-item" href="javascript:changeFont('monospace')">Monospace</a>
+                      <a class="dropdown-item" href="javascript:changeFont('cursive')">Cursive</a>
+                      <a class="dropdown-item" href="javascript:changeFont('fantasy')">Fantasy</a>
+                    </div>
+              </div>
+            </div>
+
+            <!-- This draws out the slider to select Line Spacing -->
+            <div style = "padding-top: 30px">
+              <h4> Line Spacing</h4>
+
+
+              <div class="dropdown">
+                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Choose Line Spacing
+                 </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="javascript:changeBodyLineHeight('normal')">Normal</a>
+                    <a class="dropdown-item" href="javascript:changeBodyLineHeight('1.6')">1.6</a>
+                    <a class="dropdown-item" href="javascript:changeBodyLineHeight('2')">2</a>
+                    <a class="dropdown-item" href="javascript:changeBodyLineHeight('3')">3</a>
+                    <a class="dropdown-item" href="javascript:changeBodyLineHeight('4')">4</a>
+                  </div>
+              </div>
+
+              <!--
+              <div class="btn-group" role="group" aria-label="Basic example" >
+                <button type="button" onclick="changeBodyLineHeight('normal')" class="btn btn-secondary">1.0</button>
+                <button type="button" onclick="changeBodyLineHeight('1.6')"class="btn btn-secondary">1.6</button>
+                <button type="button" onclick="changeBodyLineHeight('2')"class="btn btn-secondary">2</button>
+                <button type="button" onclick="changeBodyLineHeight('2.5')"class="btn btn-secondary">2.5</button>
+              </div>
+            -->
+            </div>
+
+            <!-- This draws out the colour palete for selecting font colour -->
+            <div style = "padding-top: 30px">
+              <h4> Font Color</h4>
+              <button class="jscolor {valueElement:'chosen-value', onFineChange:'changeFontColor(this)'}"; style="font-size : 20px";>
+                Choose Font Colour
+                </button>
+            </div>
+        </div>
+
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+            <nav class="navbar navbar-dark bg-dark navbar-fixed-top" >
+                <button type="button" id="sidebarCollapse" class="btn btn-outline-success my-2 my-sm-0 ">
+                        <!--<i class="fas fa-align-left"></i>-->
+                        <!--<span class="navbar-toggler-icon"></span>-->
+                       <span style ="color: white">Editor</span>
+                </button>
+                 <a class="navbar-brand" style = "color:white; margin-left: -125px; text-align: center; " href="{% url 'home' %}" >Dyslexic Friendly Books</a>
+
+             </nav>
+
+
+
+            <div class="container-fluid">
+
+
+            </div>
+            <div  class="col-sm-7" style="margin-left: 300px">
+                <div style="padding-top: 15px">     <!-- style="line-height: 2" -->
+
+                    {% block content %}
+
+                    {% for c in content %}
+                    <p id = "textBox">{{c}}</p>
+                    {% endfor %}
+
+                    {% endblock %}
+
+
+                </div>
+             </div>
+
+        </div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+
+        function changeBodyBg(color){
+        text = document.getElementById( 'textBox' );
+        text.style.background =  '#' + color.toString()
+        }
+
+        function changeBodyText(size){
+        document.body.style.fontSize = size;
+        }
+
+        function changeBodyLineHeight(size){
+        text = document.getElementById( 'textBox' );
+        text.style.lineHeight = size;
+        }
+
+        function changeFontColor(fontColor){
+        text = document.getElementById( 'textBox' );
+        text.style.color = '#' + fontColor.toString();
+        }
+
+        function changeFont(font){
+        document.getElementById('textBox').style.fontFamily = font;
+        }
+    </script>
+</body>
+
+</html>
