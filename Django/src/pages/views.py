@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-
+from .models import Book
 from pages.gutenbergtest import getBookTextByNumber
 
 # Create your views here.
