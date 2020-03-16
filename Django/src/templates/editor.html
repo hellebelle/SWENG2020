@@ -16,6 +16,33 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 </head>
+ {% load static %}
+
+    <script type="text/javascript" >
+
+        function changeBodyBg(color){
+        text = document.getElementById( 'textBox' );
+        text.style.background =  '#' + color.toString()
+        }
+
+        function changeBodyText(size){
+        document.body.style.fontSize = size;
+        }
+
+        function changeBodyLineHeight(size){
+        text = document.getElementById( 'textBox' );
+        text.style.lineHeight = size;
+        }
+
+        function changeFontColor(fontColor){
+        text = document.getElementById( 'textBox' );
+        text.style.color = '#' + fontColor.toString();
+        }
+
+        function changeFont(font){
+        document.getElementById('textBox').style.fontFamily = font;
+        }
+    </script>
 
 <body>
     <div class="wrapper">
@@ -25,25 +52,24 @@
      <div class = "container-fluid" >
       <div class="row">
         <div class="col-sm-2" >
-            <div>
               <div style ="margin-bottom: 20px">
                 <h3> Editor </h3>
               </div>
               <h4> Background Color </h4>
-
-              <script src="jscolor.js"></script>
+              {% load static %}
+              <script type="application/javascript" src = "{% static 'scripts/jscolor.js'%}"></script>
               <button class="jscolor {valueElement:'chosen-value', onFineChange:'changeBodyBg(this)'}"; style="font-size : 20px";>
-                    Background Colour
-                </button>
-            </div>
+            		Background Colour
+            	</button>
+
 
             <!-- This draws out the Change Font Size part in settings -->
             <div style = "padding-top: 30px">
               <h4> Font Size</h4>
               <div class="btn-group" role="group" aria-label="Basic example" >
-                <button type="button" onclick="changeBodyText('75%')" class="btn btn-secondary">Small</button>
-                <button type="button" onclick="changeBodyText('125%')"class="btn btn-secondary">Medium</button>
-                <button type="button" onclick="changeBodyText('150%')"class="btn btn-secondary">Large</button>
+                <button style ="background-color: white; color: black" type="button" onclick="changeBodyText('75%')" class="btn btn-secondary">Small</button>
+                <button style ="background-color: white; color: black" type="button" onclick="changeBodyText('125%')"class="btn btn-secondary">Medium</button>
+                <button style ="background-color: white; color: black" type="button" onclick="changeBodyText('150%')"class="btn btn-secondary">Large</button>
               </div>
             </div>
 
@@ -51,7 +77,7 @@
             <div style = "padding-top: 30px">
               <h4> Font Family</h4>
               <div class="dropdown">
-                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 <button style ="background-color: white; color: black" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                  Choose a Font
                  </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" onchange="changeFont (this)">
@@ -69,9 +95,8 @@
             <div style = "padding-top: 30px">
               <h4> Line Spacing</h4>
 
-
               <div class="dropdown">
-                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 <button style ="background-color: white; color: black;" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                  Choose Line Spacing
                  </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -153,30 +178,9 @@
                 $('#sidebar').toggleClass('active');
             });
         });
-
-        function changeBodyBg(color){
-        text = document.getElementById( 'textBox' );
-        text.style.background =  '#' + color.toString()
-        }
-
-        function changeBodyText(size){
-        document.body.style.fontSize = size;
-        }
-
-        function changeBodyLineHeight(size){
-        text = document.getElementById( 'textBox' );
-        text.style.lineHeight = size;
-        }
-
-        function changeFontColor(fontColor){
-        text = document.getElementById( 'textBox' );
-        text.style.color = '#' + fontColor.toString();
-        }
-
-        function changeFont(font){
-        document.getElementById('textBox').style.fontFamily = font;
-        }
     </script>
+
+
 </body>
 
 </html>
