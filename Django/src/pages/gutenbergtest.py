@@ -79,7 +79,7 @@ for sentence in tokenised_sentences:
     tagged_words = nltk.pos_tag(tokenised_words)
     for word in tokenised_words:
         tokenised_syllables = SSP.tokenize(word)
-        print(tokenised_syllables)
+        #print(tokenised_syllables)
     
 
 
