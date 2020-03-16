@@ -19,13 +19,16 @@ from django.conf import settings
 from django.views.static import serve
 from pages.views import home_view
 from pages.views import  editor_view
+from pages.views import Book_view
+from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', home_view, name="home"),
+    path('Home/', home_view, name="home"),
+    path('', Book_view, name = "book"),
     path('editor/', editor_view, name="editor"),
     path('admin/', admin.site.urls),
     path('', include('pages.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # if settings.DEBUG:
 #     urlpatterns += [
