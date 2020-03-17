@@ -40,10 +40,9 @@
   #section25 {padding-top:50px;height:500px;color: #fff; background-color: #6aff00;}
   #section25 {padding-top:50px;height:500px;color: #fff; background-color: #00ff80;}
   #section26 {padding-top:50px;height:500px;color: #fff; background-color: #00ffb3;}
-  #book {padding-top: 50px; height:300px; color: white; margin-left: 100px; width:217px;}
-  #bookImage{padding-top: 10px; margin-left: 100px;}
-  #bookTitle{margin-left: 120px}
-  #link {margin-left:-150px; color:black; margin-bottom: 150px;}
+  #bookImage{ margin-left: 100px; }
+  #bookTitle{margin-left: 110px}
+  #bookAuthor{margin-left: 110px; margin-bottom: 30px}
   </style>
 
 </head>
@@ -99,116 +98,422 @@
   <div style="height:35vh">
       <!-- {% load static %} -->
 
+       <div class="row">
       {% for book in books %}
-      <a href="{% url 'editor' %}">
-      <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
-      </a>
-      <h4 style = "margin-left: 100px">{{ book.book_title }}</h4>
-      <h4 style = "margin-left: 100px"> {{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
-      <p style = "margin-left: 100px"> {{book.book_num}}</p>
+      {% if book.book_title|make_list|first  == 'A' %}
+        <div class="col-md-3">
+          <a href="{% url 'editor' %}">
+          <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
+          </a>
+          <h4 id = bookTitle>{{ book.book_title }}</h4>
+          <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
+        </div>
+      {% endif %}
+
       {% endfor %}
+        </div>
 
   </div>
 </div>
 <div id="section2" class="container-fluid">
   <h1>B</h1>
-
+  <div class = "row">
+  {% for book in books %}
+    {% if book.book_title|make_list|first  == 'B' %}
+        <div class="col-md-3">
+          <a href="{% url 'editor' %}">
+          <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
+          </a>
+          <h4 id = bookTitle>{{ book.book_title }}</h4>
+          <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
+        </div>
+      {% endif %}
+  {% endfor %}
+  </div>
 </div>
 <div id="section3" class="container-fluid">
   <h1>C</h1>
-
+  <div class = "row">
+  {% for book in books %}
+    {% if book.book_title|make_list|first  == 'C' %}
+        <div class="col-md-3">
+          <a href="{% url 'editor' %}">
+          <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
+          </a>
+          <h4 id = bookTitle>{{ book.book_title }}</h4>
+          <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
+        </div>
+      {% endif %}
+  {% endfor %}
+  </div>
 </div>
 <div id="section4" class="container-fluid">
   <h1>D</h1>
-
+  <div class = "row">
+  {% for book in books %}
+    {% if book.book_title|make_list|first  == 'D' %}
+        <div class="col-md-3">
+          <a href="{% url 'editor' %}">
+          <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
+          </a>
+          <h4 id = bookTitle>{{ book.book_title }}</h4>
+          <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
+        </div>
+      {% endif %}
+  {% endfor %}
+  </div>
 </div>
 <div id="section5" class="container-fluid">
   <h1>E</h1>
-
+  <div class = "row">
+  {% for book in books %}
+    {% if book.book_title|make_list|first  == 'E' %}
+        <div class="col-md-3">
+          <a href="{% url 'editor' %}">
+          <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
+          </a>
+          <h4 id = bookTitle>{{ book.book_title }}</h4>
+          <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
+        </div>
+      {% endif %}
+  {% endfor %}
+  </div>
 </div>
 <div id="section6" class="container-fluid">
   <h1>F</h1>
-
+  <div class = "row">
+  {% for book in books %}
+    {% if book.book_title|make_list|first  == 'F' %}
+        <div class="col-md-3">
+          <a href="{% url 'editor' %}">
+          <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
+          </a>
+          <h4 id = bookTitle>{{ book.book_title }}</h4>
+          <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
+        </div>
+      {% endif %}
+  {% endfor %}
+  </div>
 </div>
 <div id="section7" class="container-fluid">
   <h1>G</h1>
-
+  <div class = "row">
+  {% for book in books %}
+    {% if book.book_title|make_list|first  == 'G' %}
+        <div class="col-md-3">
+          <a href="{% url 'editor' %}">
+          <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
+          </a>
+          <h4 id = bookTitle>{{ book.book_title }}</h4>
+          <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
+        </div>
+      {% endif %}
+  {% endfor %}
+  </div>
 </div>
 <div id="section8" class="container-fluid">
   <h1>H</h1>
-
+  <div class = "row">
+  {% for book in books %}
+    {% if book.book_title|make_list|first  == 'H' %}
+        <div class="col-md-3">
+          <a href="{% url 'editor' %}">
+          <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
+          </a>
+          <h4 id = bookTitle>{{ book.book_title }}</h4>
+          <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
+        </div>
+      {% endif %}
+  {% endfor %}
+  </div>
 </div>
 <div id="section9" class="container-fluid">
   <h1>I</h1>
-
+  <div class = "row">
+  {% for book in books %}
+    {% if book.book_title|make_list|first  == 'I' %}
+        <div class="col-md-3">
+          <a href="{% url 'editor' %}">
+          <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
+          </a>
+          <h4 id = bookTitle>{{ book.book_title }}</h4>
+          <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
+        </div>
+      {% endif %}
+  {% endfor %}
+  </div>
 </div>
 <div id="section10" class="container-fluid">
   <h1>J</h1>
-
+  <div class = "row">
+  {% for book in books %}
+    {% if book.book_title|make_list|first  == 'J' %}
+        <div class="col-md-3">
+          <a href="{% url 'editor' %}">
+          <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
+          </a>
+          <h4 id = bookTitle>{{ book.book_title }}</h4>
+          <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
+        </div>
+      {% endif %}
+  {% endfor %}
+  </div>
 </div>
 <div id="section11" class="container-fluid">
   <h1>K</h1>
-
+  <div class = "row">
+  {% for book in books %}
+    {% if book.book_title|make_list|first  == 'K' %}
+        <div class="col-md-3">
+          <a href="{% url 'editor' %}">
+          <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
+          </a>
+          <h4 id = bookTitle>{{ book.book_title }}</h4>
+          <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
+        </div>
+      {% endif %}
+  {% endfor %}
+  </div>
 </div>
 <div id="section12" class="container-fluid">
   <h1>L</h1>
-
+  <div class = "row">
+  {% for book in books %}
+    {% if book.book_title|make_list|first  == 'L' %}
+        <div class="col-md-3">
+          <a href="{% url 'editor' %}">
+          <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
+          </a>
+          <h4 id = bookTitle>{{ book.book_title }}</h4>
+          <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
+        </div>
+      {% endif %}
+  {% endfor %}
+  </div>
 </div>
 <div id="section13" class="container-fluid">
   <h1>M</h1>
-
+  <div class = "row">
+  {% for book in books %}
+    {% if book.book_title|make_list|first  == 'M' %}
+        <div class="col-md-3">
+          <a href="{% url 'editor' %}">
+          <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
+          </a>
+          <h4 id = bookTitle>{{ book.book_title }}</h4>
+          <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
+        </div>
+      {% endif %}
+  {% endfor %}
+  </div>
 </div>
 <div id="section14" class="container-fluid">
   <h1>N</h1>
-
+  <div class = "row">
+  {% for book in books %}
+    {% if book.book_title|make_list|first  == 'N' %}
+        <div class="col-md-3">
+          <a href="{% url 'editor' %}">
+          <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
+          </a>
+          <h4 id = bookTitle>{{ book.book_title }}</h4>
+          <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
+        </div>
+      {% endif %}
+  {% endfor %}
+  </div>
 </div>
 <div id="section15" class="container-fluid">
   <h1>O</h1>
-
+  <div class = "row">
+  {% for book in books %}
+    {% if book.book_title|make_list|first  == '0' %}
+        <div class="col-md-3">
+          <a href="{% url 'editor' %}">
+          <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
+          </a>
+          <h4 id = bookTitle>{{ book.book_title }}</h4>
+          <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
+        </div>
+      {% endif %}
+  {% endfor %}
+  </div>
 </div>
 <div id="section16" class="container-fluid">
   <h1>P</h1>
-
+  <div class = "row">
+  {% for book in books %}
+    {% if book.book_title|make_list|first  == 'P' %}
+        <div class="col-md-3">
+          <a href="{% url 'editor' %}">
+          <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
+          </a>
+          <h4 id = bookTitle>{{ book.book_title }}</h4>
+          <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
+        </div>
+      {% endif %}
+  {% endfor %}
+  </div>
 </div>
 <div id="section17" class="container-fluid">
   <h1>Q</h1>
-
+  <div class = "row">
+  {% for book in books %}
+    {% if book.book_title|make_list|first  == 'Q' %}
+        <div class="col-md-3">
+          <a href="{% url 'editor' %}">
+          <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
+          </a>
+          <h4 id = bookTitle>{{ book.book_title }}</h4>
+          <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
+        </div>
+      {% endif %}
+  {% endfor %}
+  </div>
 </div>
 <div id="section18" class="container-fluid">
   <h1>R</h1>
-
+  <div class = "row">
+  {% for book in books %}
+    {% if book.book_title|make_list|first  == 'R' %}
+        <div class="col-md-3">
+          <a href="{% url 'editor' %}">
+          <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
+          </a>
+          <h4 id = bookTitle>{{ book.book_title }}</h4>
+          <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
+        </div>
+      {% endif %}
+  {% endfor %}
+  </div>
 </div>
 <div id="section19" class="container-fluid">
   <h1>S</h1>
-
+  <div class = "row">
+  {% for book in books %}
+    {% if book.book_title|make_list|first  == 'S' %}
+        <div class="col-md-3">
+          <a href="{% url 'editor' %}">
+          <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
+          </a>
+          <h4 id = bookTitle>{{ book.book_title }}</h4>
+          <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
+        </div>
+      {% endif %}
+  {% endfor %}
+  </div>
 </div>
 <div id="section20" class="container-fluid">
   <h1>T</h1>
-
+  <div class = "row">
+  {% for book in books %}
+    {% if book.book_title|make_list|first  == 'T' %}
+        <div class="col-md-3">
+          <a href="{% url 'editor' %}">
+          <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
+          </a>
+          <h4 id = bookTitle>{{ book.book_title }}</h4>
+          <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
+        </div>
+      {% endif %}
+  {% endfor %}
+  </div>
 </div>
 <div id="section21" class="container-fluid">
   <h1>U</h1>
-
+  <div class = "row">
+  {% for book in books %}
+    {% if book.book_title|make_list|first  == 'U' %}
+        <div class="col-md-3">
+          <a href="{% url 'editor' %}">
+          <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
+          </a>
+          <h4 id = bookTitle>{{ book.book_title }}</h4>
+          <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
+        </div>
+      {% endif %}
+  {% endfor %}
+  </div>
 </div>
 <div id="section22" class="container-fluid">
   <h1>V</h1>
-
+  <div class = "row">
+  {% for book in books %}
+    {% if book.book_title|make_list|first  == 'V' %}
+        <div class="col-md-3">
+          <a href="{% url 'editor' %}">
+          <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
+          </a>
+          <h4 id = bookTitle>{{ book.book_title }}</h4>
+          <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
+        </div>
+      {% endif %}
+  {% endfor %}
+  </div>
 </div>
 <div id="section23" class="container-fluid">
   <h1>W</h1>
-
+  <div class = "row">
+  {% for book in books %}
+    {% if book.book_title|make_list|first  == 'W' %}
+        <div class="col-md-3">
+          <a href="{% url 'editor' %}">
+          <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
+          </a>
+          <h4 id = bookTitle>{{ book.book_title }}</h4>
+          <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
+        </div>
+      {% endif %}
+  {% endfor %}
+  </div>
 </div>
 <div id="section24" class="container-fluid">
   <h1>X</h1>
-
+  <div class = "row">
+  {% for book in books %}
+    {% if book.book_title|make_list|first  == 'X' %}
+        <div class="col-md-3">
+          <a href="{% url 'editor' %}">
+          <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
+          </a>
+          <h4 id = bookTitle>{{ book.book_title }}</h4>
+          <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
+        </div>
+      {% endif %}
+  {% endfor %}
+  </div>
 </div>
 <div id="section25" class="container-fluid">
   <h1>Y</h1>
-
+  <div class = "row">
+  {% for book in books %}
+    {% if book.book_title|make_list|first  == 'Y' %}
+        <div class="col-md-3">
+          <a href="{% url 'editor' %}">
+          <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
+          </a>
+          <h4 id = bookTitle>{{ book.book_title }}</h4>
+          <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
+        </div>
+      {% endif %}
+  {% endfor %}
+  </div>
 </div>
 <div id="section26" class="container-fluid">
   <h1>Z</h1>
-
+  <div class = "row">
+  {% for book in books %}
+    {% if book.book_title|make_list|first  == 'Z' %}
+        <div class="col-md-3">
+          <a href="{% url 'editor' %}">
+          <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
+          </a>
+          <h4 id = bookTitle>{{ book.book_title }}</h4>
+          <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
+        </div>
+      {% endif %}
+  {% endfor %}
+  </div>
 </div>
 
 
