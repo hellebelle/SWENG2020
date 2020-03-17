@@ -47,19 +47,19 @@
 <body>
     <div class="wrapper">
         <!-- Sidebar  -->
-        <nav id="sidebar">
+        <nav id="sidebar" style = "background-color: #353a40">
 
      <div class = "container-fluid" >
-      <div class="row">
+
         <div class="col-sm-2" >
               <div style ="margin-bottom: 20px">
-                <h3> Editor </h3>
+                <h3 style=" color: #26a848"> Editor </h3>
               </div>
               <h4> Background Color </h4>
               {% load static %}
               <script type="application/javascript" src = "{% static 'scripts/jscolor.js'%}"></script>
-              <button class="jscolor {valueElement:'chosen-value', onFineChange:'changeBodyBg(this)'}"; style="font-size : 20px";>
-            		Background Colour
+              <button class="jscolor {valueElement:'chosen-value', onFineChange:'changeBodyBg(this)'}"; style="font-size : 20px; border: none">
+            		Choose
             	</button>
 
 
@@ -121,8 +121,8 @@
             <!-- This draws out the colour palete for selecting font colour -->
             <div style = "padding-top: 30px">
               <h4> Font Color</h4>
-              <button class="jscolor {valueElement:'chosen-value', onFineChange:'changeFontColor(this)'}"; style="font-size : 20px";>
-                Choose Font Colour
+              <button class="jscolor {valueElement:'chosen-value', onFineChange:'changeFontColor(this)'}"; style="font-size : 20px; border: none";>
+                Choose
                 </button>
             </div>
         </div>
