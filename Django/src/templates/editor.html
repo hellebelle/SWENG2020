@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+     <title>Editor Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -163,7 +164,22 @@
              </div>
 
         </div>
+
+        <div class = "col-sm-2" style = "margin-top: 200px">
+            <textarea id="sel" rows="3" cols="25"></textarea>
+            <button type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40">
+                <span style ="color: white">Text to Speech</span>
+            </button>
+
+            <button type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40;">
+                <span style ="color: white">Syllables</span>
+            </button>
+        </div>
+
+
     </div>
+
+
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -178,6 +194,27 @@
                 $('#sidebar').toggleClass('active');
             });
         });
+
+        function getSelectionText() {
+        var text = "";
+        var activeEl = document.activeElement;
+        var activeElTagName = activeEl ? activeEl.tagName.toLowerCase() : null;
+        if (
+            (activeElTagName == "textarea") || (activeElTagName == "input" &&
+            /^(?:text|search|password|tel|url)$/i.test(activeEl.type)) &&
+            (typeof activeEl.selectionStart == "number")
+            ) {
+                text = activeEl.value.slice(activeEl.selectionStart, activeEl.selectionEnd);
+        } else if (window.getSelection) {
+                text = window.getSelection().toString();
+        }
+            return text;
+	    }
+
+	    document.onmouseup = document.onkeyup = document.onselectionchange = function() {
+  	    document.getElementById("sel").value = getSelectionText();
+	    };
+
     </script>
 
 

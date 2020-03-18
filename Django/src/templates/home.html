@@ -102,11 +102,12 @@
       {% for book in books %}
       {% if book.book_title|make_list|first  == 'A' %}
         <div class="col-md-3">
-          <a href="{% url 'editor' %}">
+          <a href="{% url 'editor'  %}">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
           </a>
           <h4 id = bookTitle>{{ book.book_title }}</h4>
           <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
+          <p> {{ book.get_book_num}}</p>
         </div>
       {% endif %}
 

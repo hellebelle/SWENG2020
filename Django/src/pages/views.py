@@ -7,8 +7,9 @@ from pages.gutenbergtest import getBookTextByNumber
 def home_view(request):
     return render(request, "home.html", {})
 
-def editor_view(request):
-    return render(request, "editor.html", {'content':[getBookTextByNumber(11, False)]})
+def editor_view(request ,value=11):
+
+    return render(request, "editor.html", {'content':[getBookTextByNumber(int(value), False)]})
 
 def Book_view(request):
   books = Book.objects.all()
