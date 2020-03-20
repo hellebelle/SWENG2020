@@ -18,6 +18,14 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 </head>
  {% load static %}
+    <style>
+        .hide:hover .hide-item,
+        .hide:focus .hide-item {
+        opacity: 0;
+        }
+
+        textarea { resize: vertical; }
+    </style>
 
     <script type="text/javascript" >
 
@@ -171,15 +179,21 @@
 
         </div>
 
-        <div class = "col-sm-2" style = "margin-top: 200px">
-            <textarea id="sel" rows="3" cols="25"></textarea>
-            <button type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40">
-                <span style ="color: white">Text to Speech</span>
+        <div class = "col-sm-2" style = "margin-top: 40px">
+            <button onclick="hide()" type="button" class = "btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40; ">
+                <span style ="color: white">Assistance</span>
             </button>
+                <div id = "hide" style ="margin-top: 80px">
+                    <h3 style="color: #26a848; font-weight: bold"> Assistance </h3>
+                    <textarea id="sel" rows="3" cols="25"></textarea>
+                    <button type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40">
+                        <span style ="color: white">Text to Speech</span>
+                    </button>
 
-            <button type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40;">
-                <span style ="color: white">Syllables</span>
-            </button>
+                    <button type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40;">
+                        <span style ="color: white">Syllables</span>
+                    </button>
+                </div>
         </div>
 
 
@@ -221,7 +235,25 @@
   	    document.getElementById("sel").value = getSelectionText();
 	    };
 
+        //Function for hidiing the right handside elements on the editor page
+        count = 0;
+        function hide(){
+
+            if(count % 2 ==  0){
+                document.getElementById("hide").style.opacity =  "0";
+                count++;
+            }
+            else if( count % 2 != 0){
+                document.getElementById("hide").style.opacity =  "1";
+                count++;
+            }
+
+
+        }
+
     </script>
+
+
 
 
 </body>
