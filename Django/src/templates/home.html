@@ -102,12 +102,11 @@
       {% for book in books %}
       {% if book.book_title|make_list|first  == 'A' %}
         <div class="col-md-3">
-          <a href="{% url 'editor'  %}">
+          <a href="{{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
           </a>
           <h4 id = bookTitle>{{ book.book_title }}</h4>
           <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
-          <p> {{ book.get_book_num}}</p>
         </div>
       {% endif %}
 
@@ -122,7 +121,7 @@
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'B' %}
         <div class="col-md-3">
-          <a href="{% url 'editor' %}">
+           <a href="{{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
           </a>
           <h4 id = bookTitle>{{ book.book_title }}</h4>
@@ -138,7 +137,7 @@
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'C' %}
         <div class="col-md-3">
-          <a href="{% url 'editor' %}">
+           <a href="/editor/ {{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
           </a>
           <h4 id = bookTitle>{{ book.book_title }}</h4>
@@ -154,7 +153,7 @@
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'D' %}
         <div class="col-md-3">
-          <a href="{% url 'editor' %}">
+          <a href="/editor/ {{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
           </a>
           <h4 id = bookTitle>{{ book.book_title }}</h4>
@@ -170,7 +169,7 @@
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'E' %}
         <div class="col-md-3">
-          <a href="{% url 'editor' %}">
+           <a href="/editor/ {{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
           </a>
           <h4 id = bookTitle>{{ book.book_title }}</h4>
@@ -186,7 +185,7 @@
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'F' %}
         <div class="col-md-3">
-          <a href="{% url 'editor' %}">
+           <a href="/editor/ {{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
           </a>
           <h4 id = bookTitle>{{ book.book_title }}</h4>
@@ -202,7 +201,7 @@
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'G' %}
         <div class="col-md-3">
-          <a href="{% url 'editor' %}">
+           <a href="/editor/ {{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
           </a>
           <h4 id = bookTitle>{{ book.book_title }}</h4>
@@ -218,7 +217,7 @@
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'H' %}
         <div class="col-md-3">
-          <a href="{% url 'editor' %}">
+           <a href="/editor/ {{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
           </a>
           <h4 id = bookTitle>{{ book.book_title }}</h4>
@@ -234,7 +233,7 @@
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'I' %}
         <div class="col-md-3">
-          <a href="{% url 'editor' %}">
+           <a href="/editor/ {{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
           </a>
           <h4 id = bookTitle>{{ book.book_title }}</h4>
@@ -250,7 +249,7 @@
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'J' %}
         <div class="col-md-3">
-          <a href="{% url 'editor' %}">
+           <a href="/editor/ {{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
           </a>
           <h4 id = bookTitle>{{ book.book_title }}</h4>
@@ -266,7 +265,7 @@
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'K' %}
         <div class="col-md-3">
-          <a href="{% url 'editor' %}">
+           <a href="/editor/ {{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
           </a>
           <h4 id = bookTitle>{{ book.book_title }}</h4>
@@ -282,7 +281,7 @@
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'L' %}
         <div class="col-md-3">
-          <a href="{% url 'editor' %}">
+           <a href="/editor/ {{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
           </a>
           <h4 id = bookTitle>{{ book.book_title }}</h4>
@@ -298,7 +297,7 @@
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'M' %}
         <div class="col-md-3">
-          <a href="{% url 'editor' %}">
+           <a href="/editor/ {{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
           </a>
           <h4 id = bookTitle>{{ book.book_title }}</h4>
@@ -314,7 +313,7 @@
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'N' %}
         <div class="col-md-3">
-          <a href="{% url 'editor' %}">
+           <a href="/editor/ {{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
           </a>
           <h4 id = bookTitle>{{ book.book_title }}</h4>
@@ -330,7 +329,7 @@
   {% for book in books %}
     {% if book.book_title|make_list|first  == '0' %}
         <div class="col-md-3">
-          <a href="{% url 'editor' %}">
+           <a href="/editor/ {{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
           </a>
           <h4 id = bookTitle>{{ book.book_title }}</h4>
@@ -346,7 +345,7 @@
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'P' %}
         <div class="col-md-3">
-          <a href="{% url 'editor' %}">
+           <a href="/editor/ {{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
           </a>
           <h4 id = bookTitle>{{ book.book_title }}</h4>
@@ -362,7 +361,7 @@
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'Q' %}
         <div class="col-md-3">
-          <a href="{% url 'editor' %}">
+           <a href="/editor/ {{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
           </a>
           <h4 id = bookTitle>{{ book.book_title }}</h4>
@@ -378,7 +377,7 @@
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'R' %}
         <div class="col-md-3">
-          <a href="{% url 'editor' %}">
+           <a href="/editor/ {{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
           </a>
           <h4 id = bookTitle>{{ book.book_title }}</h4>
@@ -394,7 +393,7 @@
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'S' %}
         <div class="col-md-3">
-          <a href="{% url 'editor' %}">
+           <a href="/editor/ {{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
           </a>
           <h4 id = bookTitle>{{ book.book_title }}</h4>
@@ -410,7 +409,7 @@
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'T' %}
         <div class="col-md-3">
-          <a href="{% url 'editor' %}">
+           <a href="/editor/ {{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
           </a>
           <h4 id = bookTitle>{{ book.book_title }}</h4>
@@ -426,7 +425,7 @@
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'U' %}
         <div class="col-md-3">
-          <a href="{% url 'editor' %}">
+           <a href="/editor/ {{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
           </a>
           <h4 id = bookTitle>{{ book.book_title }}</h4>
@@ -442,7 +441,7 @@
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'V' %}
         <div class="col-md-3">
-          <a href="{% url 'editor' %}">
+           <a href="/editor/ {{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
           </a>
           <h4 id = bookTitle>{{ book.book_title }}</h4>
@@ -458,7 +457,7 @@
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'W' %}
         <div class="col-md-3">
-          <a href="{% url 'editor' %}">
+           <a href="/editor/ {{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
           </a>
           <h4 id = bookTitle>{{ book.book_title }}</h4>
@@ -474,7 +473,7 @@
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'X' %}
         <div class="col-md-3">
-          <a href="{% url 'editor' %}">
+           <a href="/editor/ {{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
           </a>
           <h4 id = bookTitle>{{ book.book_title }}</h4>
@@ -490,7 +489,7 @@
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'Y' %}
         <div class="col-md-3">
-          <a href="{% url 'editor' %}">
+           <a href="/editor/ {{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
           </a>
           <h4 id = bookTitle>{{ book.book_title }}</h4>
@@ -506,7 +505,7 @@
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'Z' %}
         <div class="col-md-3">
-          <a href="{% url 'editor' %}">
+           <a href="/editor/ {{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
           </a>
           <h4 id = bookTitle>{{ book.book_title }}</h4>
