@@ -9,7 +9,8 @@ def home_view(request):
     return render(request, "home.html", {})
 
 def editor_view(request , book_num):
-    return render(request, "editor.html", {'content':[getBookTextByNumber(book_num, False)]})
+    name = Book.get_book_name(book_num)
+    return render(request, "editor.html", {'content':[getBookTextByNumber(book_num, False)],'name': name})
 
 def Book_view(request):
   books = Book.objects.all()

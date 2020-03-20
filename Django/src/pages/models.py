@@ -10,7 +10,8 @@ class Book(models.Model):
     def __str__(self):
         return self.book_title
 
-    def get_book_num(self):
-        bookNumber  = self.book_num
-
-        return bookNumber
+    def get_book_name(number):
+        books = Book.objects.all()
+        for book in books:
+            if book.book_num == number:
+                return book.book_title
