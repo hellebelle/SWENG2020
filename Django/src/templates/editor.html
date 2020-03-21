@@ -146,7 +146,7 @@
                         <!--<span class="navbar-toggler-icon"></span>-->
                        <span style ="color: white">Editor</span>
                 </button>
-                 <a class="navbar-brand" style = "color:white; margin-left: -125px; text-align: center; " href="{% url 'book' %}" >Dyslexic Friendly Books</a>
+                 <a class="navbar-brand" style = "color:white; margin-left: -125px; text-align: center; " href="{% url 'book' %}" >Dyslexia Friendly Books</a>
 
              </nav>
 
@@ -185,13 +185,17 @@
             </button>
                 <div id = "hide" style ="margin-top: 80px">
                     <h3 style="color: #26a848; font-weight: bold"> Assistance </h3>
-                    <textarea id="sel" rows="3" cols="25"></textarea>
-                    <button type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40">
+                    <textarea id="sel" rows="3" cols="25" name = "sel"  ></textarea>
+                    <button name = "tts" type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40">
                         <span style ="color: white">Text to Speech</span>
                     </button>
 
-                    <button type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40;">
+                    <button name = "syll" type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40;">
                         <span style ="color: white">Syllables</span>
+                    </button>
+
+                    <button name = "syns" type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40;">
+                        <span style ="color: white">Synonyms</span>
                     </button>
                 </div>
         </div>
@@ -247,9 +251,20 @@
                 document.getElementById("hide").style.opacity =  "1";
                 count++;
             }
-
-
         }
+
+        $("#syns").on('click', function () {
+            selectedTxt = $("#sel").val();
+            console.log("selected: ", selectedTxt);
+            data = {
+                'selectedTxt': selectedTxt
+            };
+        })
+
+        function Successfully_Received (data, textStatus, jqXHR){
+            console.log("Successfully logged")
+        }
+        
 
     </script>
 

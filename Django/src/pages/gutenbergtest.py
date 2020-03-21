@@ -5,6 +5,7 @@ from gutenberg.query import get_metadata
 
 import nltk
 from nltk.tokenize import SyllableTokenizer
+from nltk.corpus import wordnet
 #nltk.download('punkt')
 #nltk.download('averaged_perceptron_tagger')
 
@@ -98,16 +99,40 @@ def getBookTextByNumber(bookID, strip):
         
     return bookText
 
+#returns list of synoynms for a word, 
+#returns empty list if:
+#                   string contains only digits
+#                   string contains multiple words
+#                   no synoynms available
+def getSynoynms(s):
+    synonyms = []
+    #if string contains digits only
+    if s.isdecimal():
+        return synonyms
+    else:
+        #removing digits from string
+        word = ''.join(filter(lambda x: x.isalpha(), s))
+        #finding synoynms
+        for syn in wordnet.synsets(word):
+            for l in syn.lemmas():
+                synonyms.append(l.name())
+        #removing duplicates
+        returnLi = list(set(synonyms))
+        #removing searched word
+        if word in returnLi:
+            returnLi.remove(word)
+        return returnLi
+    
 
 #findBookByAuthor('Melville, Hermann')
 
-print(getSyllableType("test"))
-print(getSyllableType("be"))
-print(getSyllableType("came"))
-print(getSyllableType("far"))
-print(getSyllableType("team"))
-print(getSyllableType("cle"))
-print(getSyllableType("BRB"))
+# print(getSyllableType("test"))
+# print(getSyllableType("be"))
+# print(getSyllableType("came"))
+# print(getSyllableType("far"))
+# print(getSyllableType("team"))
+# print(getSyllableType("cle"))
+# print(getSyllableType("BRB"))
 
 # bookText = getBookTextByNumber(2701, True)
 
@@ -130,7 +155,6 @@ print(getSyllableType("BRB"))
 #         tokenised_syllables = SSP.tokenize(word)
 #         #print(tokenised_syllables)
     
-
 
 
 
