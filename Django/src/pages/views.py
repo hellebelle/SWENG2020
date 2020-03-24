@@ -12,6 +12,7 @@ def home_view(request):
 def editor_view(request , book_num):
     # if request.is_ajax() and request.method == "POST":
     #     textSelected = request.POST['text']
+	
     name = Book.get_book_name(book_num)
     return render(request, "editor.html", {'content':[getBookTextByNumber(book_num, False)],'name': name})
 
@@ -21,3 +22,12 @@ def Book_view(request):
       'books' : books
   }
   return render(request, "home.html", args)
+  
+def selected_text(request):
+	if request.method == 'POST':
+		if request.POST.get('type'):
+		
+			textSelected = request.POST.get('text')
+		
+			return render_to_response(request, 'home.html', textSelected)
+	

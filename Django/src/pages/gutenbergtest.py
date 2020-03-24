@@ -124,6 +124,24 @@ def getSynoynms(s):
         return returnLi
     
 
+def getTextSyllables(text):
+    textSyllables = []
+    SSP = SyllableTokenizer()
+    tokenised_sentences = nltk.sent_tokenize(text)
+    for sentence in tokenised_sentences:
+        tokenised_words = nltk.word_tokenize(sentence)
+        #tagged_words = nltk.pos_tag(tokenised_words)
+        for word in tokenised_words:
+            tokenised_syllables = SSP.tokenize(word)
+            #textSyllables = textSyllables.join(tokenised_syllables)
+            textSyllables += tokenised_syllables
+
+    return textSyllables
+
+bookText = getBookTextByNumber(2701, True)
+pageText = getBookPage(bookText, 3000, 1)
+print(getTextSyllables(pageText))
+
 #findBookByAuthor('Melville, Hermann')
 
 # print(getSyllableType("test"))
@@ -143,7 +161,6 @@ def getSynoynms(s):
 # print("Created Page 1")
 
 # SSP = SyllableTokenizer()
-
 
 # tokenised_sentences = nltk.sent_tokenize(pageText)
 # for sentence in tokenised_sentences:
