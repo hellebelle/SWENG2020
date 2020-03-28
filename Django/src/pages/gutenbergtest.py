@@ -9,6 +9,8 @@ from nltk.corpus import wordnet
 #nltk.download('punkt')
 #nltk.download('averaged_perceptron_tagger')
 
+#returns the type of syllable, 
+#returns "Error" if the text contains no vowels and is therefore not a syllable   
 
 def getSyllableType(syllable):
 
@@ -135,12 +137,13 @@ def getTextSyllables(text):
             tokenised_syllables = SSP.tokenize(word)
             #textSyllables = textSyllables.join(tokenised_syllables)
             textSyllables += tokenised_syllables
-
+    
+    print(textSyllables)
     return textSyllables
 
-bookText = getBookTextByNumber(2701, True)
-pageText = getBookPage(bookText, 3000, 1)
-print(getTextSyllables(pageText))
+# bookText = getBookTextByNumber(2701, True)
+# pageText = getBookPage(bookText, 3000, 1)
+# print(getTextSyllables(pageText))
 
 #findBookByAuthor('Melville, Hermann')
 

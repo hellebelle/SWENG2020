@@ -1,7 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Book
-#from pages.gutenbergtest import getBookTextByNumber
 from .gutenbergtest import *
 
 
@@ -13,21 +12,35 @@ def editor_view(request , book_num):
     # if request.is_ajax() and request.method == "POST":
     #     textSelected = request.POST['text']
 	
-    name = Book.get_book_name(book_num)
-    return render(request, "editor.html", {'content':[getBookTextByNumber(book_num, False)],'name': name})
+	name = Book.get_book_name(book_num)
+
+	if request.method == 'POST':
+		print("Run2")
+		if request.POST.get('type') and request.POST.get('type') == "syll":
+			
+			print("Run3")
+		
+			textSelected = request.POST.get('sel')
+			
+			print(textSelected)
+			
+			syllables = getTextSyllables(textSelected) 
+			
+			print(syllables)
+			
+	args = {
+		'content':[getBookTextByNumber(book_num, False)],'name' : name
+	}
+	
+	return render(request, "editor.html", args)
 
 def Book_view(request):
-  books = Book.objects.all()
-  args = {
-      'books' : books
-  }
-  return render(request, "home.html", args)
+	print("Run1")
+	books = Book.objects.all()
+	args = {
+		'books' : books
+	}
+	return render(request, "home.html", args)
   
-def selected_text(request):
-	if request.method == 'POST':
-		if request.POST.get('type'):
-		
-			textSelected = request.POST.get('text')
-		
-			return render_to_response(request, 'home.html', textSelected)
+
 	
