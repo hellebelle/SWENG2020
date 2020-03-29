@@ -184,3 +184,5 @@ ul.CTAs  {
         display: none;
     }
 }
+
+textarea { resize: vertical; }

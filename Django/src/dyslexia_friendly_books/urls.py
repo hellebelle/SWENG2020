@@ -20,6 +20,8 @@ from django.views.static import serve
 from pages.views import home_view
 from pages.views import  editor_view
 from pages.views import Book_view
+from pages.views import Syllables, Synonyms, Speak
+#from pages.view import Synonyms
 from django.conf.urls.static import static
 
 
@@ -27,6 +29,9 @@ urlpatterns = [
     path('Home/', home_view, name="home"),
     path('', Book_view, name = "book"),
     path('<int:book_num>/', editor_view, name="editor"),
+    path('Syllables/', Syllables, name="syllables"),
+    path('Synonyms/', Synonyms, name="synonyms"),
+    path('Speak/', Speak, name="speak"),
     path('admin/', admin.site.urls),
     path('', include('pages.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
