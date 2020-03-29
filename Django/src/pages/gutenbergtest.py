@@ -2,7 +2,10 @@ from gutenberg.acquire import load_etext
 from gutenberg.cleanup import strip_headers
 from gutenberg.query import get_etexts
 from gutenberg.query import get_metadata
+from django import template
+from django.template.defaultfilters import stringfilter
 
+register = template.Library()
 import nltk
 from nltk.tokenize import SyllableTokenizer
 from nltk.corpus import wordnet
@@ -101,45 +104,8 @@ def getBookTextByNumber(bookID, strip):
         
     return bookText
 
-#returns list of synoynms for a word, 
-#returns empty list if:
-#                   string contains only digits
-#                   string contains multiple words
-#                   no synoynms available
-def getSynoynms(s):
-    synonyms = []
-    #if string contains digits only
-    if s.isdecimal():
-        return synonyms
-    else:
-        #removing digits from string
-        word = ''.join(filter(lambda x: x.isalpha(), s))
-        #finding synoynms
-        for syn in wordnet.synsets(word):
-            for l in syn.lemmas():
-                synonyms.append(l.name())
-        #removing duplicates
-        returnLi = list(set(synonyms))
-        #removing searched word
-        if word in returnLi:
-            returnLi.remove(word)
-        return returnLi
-    
 
-def getTextSyllables(text):
-    textSyllables = []
-    SSP = SyllableTokenizer()
-    tokenised_sentences = nltk.sent_tokenize(text)
-    for sentence in tokenised_sentences:
-        tokenised_words = nltk.word_tokenize(sentence)
-        #tagged_words = nltk.pos_tag(tokenised_words)
-        for word in tokenised_words:
-            tokenised_syllables = SSP.tokenize(word)
-            #textSyllables = textSyllables.join(tokenised_syllables)
-            textSyllables += tokenised_syllables
-    
-    print(textSyllables)
-    return textSyllables
+
 
 # bookText = getBookTextByNumber(2701, True)
 # pageText = getBookPage(bookText, 3000, 1)
