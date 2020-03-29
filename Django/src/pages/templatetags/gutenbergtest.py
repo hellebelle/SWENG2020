@@ -128,7 +128,24 @@ def getSynoynms(s):
             returnLi.remove(word)
         return returnLi
     
-
+@register.filter(name='getTextSyllables')
+@stringfilter
+def getTextSyllables(text):
+    print(text)
+    print("hello")
+    textSyllables = []
+    SSP = SyllableTokenizer()
+    tokenised_sentences = nltk.sent_tokenize(text)
+    for sentence in tokenised_sentences:
+        tokenised_words = nltk.word_tokenize(sentence)
+        #tagged_words = nltk.pos_tag(tokenised_words)
+        for word in tokenised_words:
+            tokenised_syllables = SSP.tokenize(word)
+            #textSyllables = textSyllables.join(tokenised_syllables)
+            textSyllables += tokenised_syllables
+    
+    print(textSyllables)
+    return textSyllables
 
 # bookText = getBookTextByNumber(2701, True)
 # pageText = getBookPage(bookText, 3000, 1)

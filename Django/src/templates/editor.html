@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +13,11 @@
     <!-- Our Custom CSS -->
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -190,32 +196,44 @@
                         <span style ="color: white">Text to Speech</span>
                     </button>
 
-                    <button name = "type" value = "syll" type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40;">
+                    <button name = "type" id = "syll" value = "syll" type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40;">
                         <span style ="color: white">Syllables</span>
                     </button>
 
-                    <button name = "type" value = "syns" type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40;">
+                    <button name = "type" id = "syns" value = "syns" type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40;">
                         <span style ="color: white">Synonyms</span>
                     </button>
                 </div>
         </div>
-
-
     </div>
 
 
-
-    <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-
+   
+    
     <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
+            });
+            $("#syll").on('click', function () {
+                selectedTxt = $("#sel").val();
+                console.log("selected: ", selectedTxt);
+                // var xhttp = new XMLHttpRequest();
+                // xhttp.open("GET", 'http://127.0.0.1:8000/getTextSyllables/' + selectedTxt, false);
+                // xhttp.send();
+                //console.log(selectedTxt)
+                // $.get("http://127.0.0.1:8000/getTextSyllables/" + selectedTxt, function(data, status){
+                //     console.log("im here");
+                // });
+                $.get({type:"GET", url: "http://127.0.0.1:8000/getTextSyllables/" + selectedTxt}, function(responseText, status) {
+                    if (status === 'success') {
+                        console.log("success");
+                        console.log(responseText);
+                    } else {
+                        console.log(responseText);
+                        console.log("failed");
+                    }
+                });
             });
         });
 
@@ -236,9 +254,7 @@
 	    }
 
 	    document.onmouseup = document.onkeyup = document.onselectionchange = function() {
-  	    document.getElementById("sel").value = getSelectionText();
-		
-		
+  	        document.getElementById("sel").value = getSelectionText();
 	    };
 
         //Function for hiding the right handside elements on the editor page
@@ -255,13 +271,7 @@
             }
         }
 
-        $("#syns").on('click', function () {
-            selectedTxt = $("#sel").val();
-            console.log("selected: ", selectedTxt);
-            data = {
-                'selectedTxt': selectedTxt
-            };
-        })
+        
 
         function Successfully_Received (data, textStatus, jqXHR){
             console.log("Successfully logged")
