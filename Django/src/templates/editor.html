@@ -18,6 +18,14 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 </head>
  {% load static %}
+    <style>
+        .hide:hover .hide-item,
+        .hide:focus .hide-item {
+        opacity: 0;
+        }
+
+        textarea { resize: vertical; }
+    </style>
 
     <script type="text/javascript" >
 
@@ -61,7 +69,7 @@
               <script type="application/javascript" src = "{% static 'scripts/jscolor.js'%}"></script>
               <button class="jscolor {valueElement:'chosen-value', onFineChange:'changeBodyBg(this)'}"; style="font-size : 20px; border: none">
             		Choose
-              </button>
+            	</button>
 
 
             <!-- This draws out the Change Font Size part in settings -->
@@ -134,12 +142,12 @@
         <div id="content">
             <nav class="navbar navbar-dark bg-dark navbar-fixed-top" >
                 <button type="button" id="sidebarCollapse" class="btn btn-outline-success my-2 my-sm-0 ">
+                        <!--<i class="fas fa-align-left"></i>-->
+                        <!--<span class="navbar-toggler-icon"></span>-->
                        <span style ="color: white">Editor</span>
                 </button>
-                <a class="navbar-brand" style = "color:white; margin-left: -30px; text-align: center; " href="{% url 'book' %}" >Dyslexia Friendly Books</a>
-                <button onclick="hide()" type="button" class = "btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40; ">
-                    <span style ="color: white">Assistance</span>
-                </button>
+                 <a class="navbar-brand" style = "color:white; margin-left: -125px; text-align: center; " href="{% url 'book' %}" >Dyslexia Friendly Books</a>
+
              </nav>
 
 
@@ -172,51 +180,23 @@
         </div>
 
         <div class = "col-sm-2" style = "margin-top: 40px">
+            <button onclick="hide()" type="button" class = "btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40; ">
+                <span style ="color: white">Assistance</span>
+            </button>
                 <div id = "hide" style ="margin-top: 80px">
                     <h3 style="color: #26a848; font-weight: bold"> Assistance </h3>
+                    <textarea id="sel" rows="3" cols="25" name = "sel"  ></textarea>
+                    <button name = "type" value = "tts" type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40">
+                        <span style ="color: white">Text to Speech</span>
+                    </button>
 
+                    <button name = "type" value = "syll" type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40;">
+                        <span style ="color: white">Syllables</span>
+                    </button>
 
-                    <!--<form action="/Editor">
-                        <textarea  id="sel" rows="3" cols="25" name = "sel"  ></textarea>
-                        <button type = "submit" value="Syllables" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40;">
-                            <span style ="color: white">Syllables</span>
-                        </button>
-                        <button type = "submit" value="Synonyms" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40;">
-                            <span style ="color: white">Synonyms</span>
-                        </button>
-                    </form>-->
-
-                    <!--
-                   <form action=/Syllables>
-                        <textarea  id="sel" rows="3" cols="25" name = "sel"  ></textarea>
-                        <button type = "submit"  class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40;">
-                            <span style ="color: white">Syllables</span>
-                        </button>
-                    </form>
-                     -->
-                    <form action=/Synonyms>
-                        <textarea  id="sel" rows="3" cols="25" name = "sel"  ></textarea>
-                        <button type = "submit"  class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40;">
-                            <span style ="color: white">Synonyms</span>
-                        </button>
-                    </form>
-
-                    <!--
-                    <form action=/Speak>
-                        <textarea  id="sel" rows="3" cols="25" name = "sel"  ></textarea>
-                        <button type = "submit"  class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40;">
-                            <span style ="color: white">Text to Speech</span>
-                        </button>
-                    </form>
-                    -->
-
-                    {% for s in Syllables %}
-                        <p> {{ s }} </p>
-                    {% endfor %}
-
-                    {% for s in Synonyms %}
-                        <p> {{ s }} </p>
-                    {% endfor %}
+                    <button name = "type" value = "syns" type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40;">
+                        <span style ="color: white">Synonyms</span>
+                    </button>
                 </div>
         </div>
 

@@ -16,7 +16,6 @@
 
 if (!window.jscolor) { window.jscolor = (function () {
 
-print("Jscolor")
 
 var jsc = {
 
@@ -1027,7 +1026,7 @@ var jsc = {
 		this.pointerBorderColor = '#FFFFFF'; // px
         this.pointerBorderWidth = 1; // px
         this.pointerThickness = 2; // px
-		this.zIndex = 9999;
+		this.zIndex = 1000;
 		this.container = null; // where to append the color picker (BODY element by default)
 
 
