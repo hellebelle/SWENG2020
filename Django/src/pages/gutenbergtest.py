@@ -104,30 +104,7 @@ def getBookTextByNumber(bookID, strip):
         
     return bookText
 
-#returns list of synoynms for a word, 
-#returns empty list if:
-#                   string contains only digits
-#                   string contains multiple words
-#                   no synoynms available
-def getSynoynms(s):
-    synonyms = []
-    #if string contains digits only
-    if s.isdecimal():
-        return synonyms
-    else:
-        #removing digits from string
-        word = ''.join(filter(lambda x: x.isalpha(), s))
-        #finding synoynms
-        for syn in wordnet.synsets(word):
-            for l in syn.lemmas():
-                synonyms.append(l.name())
-        #removing duplicates
-        returnLi = list(set(synonyms))
-        #removing searched word
-        if word in returnLi:
-            returnLi.remove(word)
-        return returnLi
-    
+
 
 
 # bookText = getBookTextByNumber(2701, True)
