@@ -67,13 +67,26 @@
 <body>
     <div class="wrapper">
         <!-- Sidebar  -->
-        <nav id="sidebar" style = "background-color: #353a40">
-            <div class = "container-fluid" >
-                <div class="col-sm-2" >
-                    <div style ="margin-bottom: 20px">
-                        <h3 style=" color: #26a848"> Editor </h3>
-                    </div>
-                    <h4> Background Color </h4>
+
+
+        <!-- Page Content  -->
+        <div id="content">
+                <nav class="navbar navbar-dark bg-dark navbar-fixed-top" >
+                    <button onclick="hideTest()"type="button"  class="btn btn-outline-success my-2 my-sm-0 ">
+                       <span style ="color: white">Editor</span>
+                    </button>
+                    <a class="navbar-brand" style = "color:white; margin-left: -125px; text-align: center; " href="{% url 'book' %}" >GutenRead</a>
+                    <button onclick="hide()" type="button" class = "btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40; ">
+                        <span style ="color: white">Assistance</span>
+                    </button>
+                </nav>
+
+                <div class="container-fluid">
+                    <div class = "row">
+                        <div class = "col-sm-2" style = "margin-top: 40px">
+                            <div class="sticky-top" id = "hideEditor">
+                                <h3 style="color: #26a848; font-weight:bold"> Editor </h3>
+                                <h4> Background Color </h4>
                     {% load static %}
                     <script type="application/javascript" src = "{% static 'scripts/jscolor.js'%}"></script>
                         <button class="jscolor {valueElement:'chosen-value', onFineChange:'changeBodyBg(this)'}"; style="font-size : 20px; border: none">
@@ -131,24 +144,10 @@
                         Choose
                         </button>
                     </div>
-        </nav>
-
-        <!-- Page Content  -->
-        <div id="content">
-                <nav class="navbar navbar-dark bg-dark navbar-fixed-top" >
-                    <button type="button" id="sidebarCollapse" class="btn btn-outline-success my-2 my-sm-0 ">
-                       <span style ="color: white">Editor</span>
-                    </button>
-                    <a class="navbar-brand" style = "color:white; margin-left: -125px; text-align: center; " href="{% url 'book' %}" >GutenRead</a>
-                    <button onclick="hide()" type="button" class = "btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40; ">
-                        <span style ="color: white">Assistance</span>
-                    </button>
-                </nav>
-
-                <div class="container-fluid">
-                    <div class = "row">
-                        <div  class="col-sm-7" style="margin-left: 300px">
-                            <div style="padding-top: 15px">
+                            </div>
+                        </div>
+                        <div  class="col-sm-7" >
+                            <div style="padding-top: 15px; margin-left: 40px">
                             {% block content %}
                                 <h1 style = "padding-bottom: 2vh; text-align: center; font-weight: bold">{{name}}</h1>
                                 {% for c in content %}
@@ -270,6 +269,19 @@
             else if( count % 2 != 0){
                 document.getElementById("hide").style.opacity =  "1";
                 count++;
+            }
+        }
+
+        secondCount = 0;
+        function hideTest(){
+
+            if(secondCount % 2 ==  0){
+                document.getElementById("hideEditor").style.opacity =  "0";
+                secondCount++;
+            }
+            else if( secondCount % 2 != 0){
+                document.getElementById("hideEditor").style.opacity =  "1";
+                secondCount++;
             }
         }
 
