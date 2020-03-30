@@ -12,7 +12,8 @@ from gutenberg.query import get_metadata
 from django import template
 from django.template.defaultfilters import stringfilter
 from django.http import JsonResponse
-
+#	If google_speech is not installed please remove next line
+from google_speech import Speech
 
 register = template.Library()
 
@@ -98,5 +99,10 @@ def getSynoynms(request, s):
             returnLi.remove(word)
         return JsonResponse(returnLi, safe=False)
 
+#Synthesizes speech from the given text
+def getTextToSpeech(request, text):
+    lang = "en"
+    speech = Speech(text, lang)
+    speech.play()
 
 	

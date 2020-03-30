@@ -192,7 +192,7 @@
                 <div class="sticky-top" id = "hide" style ="margin-top: 80px">
                     <h3 style="color: #26a848; font-weight: bold"> Assistance </h3>
                     <textarea id="sel" rows="3" cols="25" name = "sel"  ></textarea>
-                    <button name = "type" value = "tts" type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40">
+                    <button name = "type" id = "tts" value = "tts" type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40">
                         <span style ="color: white">Text to Speech</span>
                     </button>
 
@@ -215,6 +215,22 @@
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
             });
+
+            $("#tts").on('click', function () {
+                selectedTxt = $("#sel").val();
+                console.log("selected: ", selectedTxt);
+                $.get({type:"GET", url: "http://127.0.0.1:8000/getTextToSpeech/" + selectedTxt}, function(responseText, status) {
+                    if (status === 'success') {
+                        console.log("success");
+                        console.log(responseText);
+                        document.getElementById("sel").value = "Selected Word: " + selectedTxt + "\nSyllables: "+ responseText;
+                    } else {
+                        console.log(responseText);
+                        console.log("failed");
+                    }
+                });
+            });
+
             $("#syll").on('click', function () {
                 selectedTxt = $("#sel").val();
                 console.log("selected: ", selectedTxt);
