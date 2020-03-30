@@ -1,3 +1,11 @@
+Install Sox:
+	For linux (ubuntu):
+        	sudo apt-get install sox libsox-fmt-mp3
+	For Windows:
+		Download and install Sox from:
+		https://sourceforge.net/projects/sox/files/sox/
+		And then add the folder its in to your PATH
+
 # SWENG2020
 Trinity College Dublin CS2013/CS3013 Software Engineering Project 
 
