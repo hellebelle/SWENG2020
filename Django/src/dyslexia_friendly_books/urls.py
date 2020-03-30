@@ -27,6 +27,7 @@ urlpatterns = [
     path('<int:book_num>/', editor_view, name="editor"),
     path('admin/', admin.site.urls),
     path('', include('pages.urls')),
+    path('getTextToSpeech/<str:text>', getTextToSpeech, name='getTextToSpeech'),
     path('getTextSyllables/<str:txt>', getTextSyllables, name='getTextSyllables'),
     path('getSynoynms/<str:s>', getSynoynms, name='getSynoynms'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
