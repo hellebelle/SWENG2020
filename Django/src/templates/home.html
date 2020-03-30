@@ -8,9 +8,16 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href=" {% static 'images/apple-touch-icon.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static  'images/favicon-16x16.png' &}">
+  <link rel="manifest" href="/site.webmanifest">
+  <!--Google Font Chilanka -->
+  <link href="https://fonts.googleapis.com/css?family=Chilanka&display=swap" rel="stylesheet">
   <style>
   body {
-
+      font-family: 'Chilanka', cursive;
       position: relative;
   }
   #section1 {padding-top:50px;height:500px;color: #fff; background-color: #1E88E5;}
@@ -40,7 +47,14 @@
   #section25 {padding-top:50px;height:500px;color: #fff; background-color: #6aff00;}
   #section25 {padding-top:50px;height:500px;color: #fff; background-color: #00ff80;}
   #section26 {padding-top:50px;height:500px;color: #fff; background-color: #00ffb3;}
-  #bookImage{ margin-left: 100px; width: 200px; height: 300px }
+  #bookImage{
+    margin-left: 100px;
+    width: 200px;
+    height: 300px;
+  }
+  .zoom:hover{
+    transform: scale(1.1);
+  }
   #bookTitle{margin-left: 110px}
   #bookAuthor{margin-left: 110px; margin-bottom: 30px}
   </style>
@@ -56,7 +70,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Dsylexic Friendly Books</a>
+      <a class="navbar-brand" href="#">GutenRead</a>
     </div>
     <div>
       <div class="collapse navbar-collapse" id="myNavbar">
@@ -101,6 +115,7 @@
        <div class="row">
       {% for book in books %}
       {% if book.book_title|make_list|first  == 'A' %}
+      <div class = "zoom">
         <div class="col-md-3">
           <a href="{{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
@@ -108,6 +123,7 @@
           <h4 id = bookTitle>{{ book.book_title }}</h4>
           <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
         </div>
+      </div>
       {% endif %}
 
       {% endfor %}
@@ -117,9 +133,11 @@
 </div>
 <div id="section2" class="container-fluid">
   <h1>B</h1>
+
   <div class = "row">
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'B' %}
+    <div class = "zoom">
         <div class="col-md-3">
            <a href="{{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
@@ -127,6 +145,7 @@
           <h4 id = bookTitle>{{ book.book_title }}</h4>
           <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
         </div>
+    </div>
       {% endif %}
   {% endfor %}
   </div>
@@ -136,6 +155,7 @@
   <div class = "row">
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'C' %}
+    <div class = "zoom">
         <div class="col-md-3">
            <a href="{{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
@@ -143,6 +163,7 @@
           <h4 id = bookTitle>{{ book.book_title }}</h4>
           <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
         </div>
+    </div>
       {% endif %}
   {% endfor %}
   </div>
@@ -152,6 +173,7 @@
   <div class = "row">
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'D' %}
+    <div class = "zoom">
         <div class="col-md-3">
           <a href="{{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
@@ -159,6 +181,7 @@
           <h4 id = bookTitle>{{ book.book_title }}</h4>
           <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
         </div>
+    </div>
       {% endif %}
   {% endfor %}
   </div>
@@ -168,6 +191,7 @@
   <div class = "row">
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'E' %}
+    <div class = "zoom">
         <div class="col-md-3">
            <a href="{{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
@@ -175,6 +199,7 @@
           <h4 id = bookTitle>{{ book.book_title }}</h4>
           <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
         </div>
+    </div>
       {% endif %}
   {% endfor %}
   </div>
@@ -184,6 +209,7 @@
   <div class = "row">
   {% for book in books %}
     {% if book.book_title|make_list|first  == 'F' %}
+      <div class ="zoom">
         <div class="col-md-3">
            <a href="{{book.book_num}}/">
           <img  id = "bookImage" src="{{ book.book_cover_photo.url }}">
@@ -191,6 +217,7 @@
           <h4 id = bookTitle>{{ book.book_title }}</h4>
           <h4 id = bookAuthor>{{ book.book_author_fname}} {{ book.book_author_lname}}</h4>
         </div>
+       </div>
       {% endif %}
   {% endfor %}
   </div>

@@ -18,16 +18,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href=" {% static 'images/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static  'images/favicon-16x16.png' &}">
+    <link rel="manifest" href="/site.webmanifest">
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <!--Google Font Chilanka -->
+    <link href="https://fonts.googleapis.com/css?family=Chilanka&display=swap" rel="stylesheet">
 </head>
  {% load static %}
     <style>
-        .hide:hover .hide-item,
-        .hide:focus .hide-item {
-        opacity: 0;
+        body{
+            font-family: 'Chilanka', cursive;
         }
 
         textarea { resize: vertical; }
@@ -63,150 +68,116 @@
     <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar" style = "background-color: #353a40">
-
-     <div class = "container-fluid" >
-
-        <div class="col-sm-2" >
-              <div style ="margin-bottom: 20px">
-                <h3 style=" color: #26a848"> Editor </h3>
-              </div>
-              <h4> Background Color </h4>
-              {% load static %}
-              <script type="application/javascript" src = "{% static 'scripts/jscolor.js'%}"></script>
-              <button class="jscolor {valueElement:'chosen-value', onFineChange:'changeBodyBg(this)'}"; style="font-size : 20px; border: none">
-            		Choose
-            	</button>
-
-
-            <!-- This draws out the Change Font Size part in settings -->
-            <div style = "padding-top: 30px">
-              <h4> Font Size</h4>
-              <div class="btn-group" role="group" aria-label="Basic example" >
-                <button style ="background-color: white; color: black" type="button" onclick="changeBodyText('75%')" class="btn btn-secondary">Small</button>
-                <button style ="background-color: white; color: black" type="button" onclick="changeBodyText('125%')"class="btn btn-secondary">Medium</button>
-                <button style ="background-color: white; color: black" type="button" onclick="changeBodyText('150%')"class="btn btn-secondary">Large</button>
-              </div>
-            </div>
-
-            <!-- This draws out the dropdown table for choosing a font -->
-            <div style = "padding-top: 30px">
-              <h4> Font Family</h4>
-              <div class="dropdown">
-                 <button style ="background-color: white; color: black" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 Choose a Font
-                 </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" onchange="changeFont (this)">
-                      <a class="dropdown-item" href="javascript:changeFont('serif')">Times New Roman</a>
-                      <a class="dropdown-item" href="javascript:changeFont('sans-serif')">Arial</a>
-                      <a class="dropdown-item" href="javascript:changeFont('georgia')">Georgia</a>
-                      <a class="dropdown-item" href="javascript:changeFont('monospace')">Monospace</a>
-                      <a class="dropdown-item" href="javascript:changeFont('cursive')">Cursive</a>
-                      <a class="dropdown-item" href="javascript:changeFont('fantasy')">Fantasy</a>
+            <div class = "container-fluid" >
+                <div class="col-sm-2" >
+                    <div style ="margin-bottom: 20px">
+                        <h3 style=" color: #26a848"> Editor </h3>
                     </div>
-              </div>
-            </div>
+                    <h4> Background Color </h4>
+                    {% load static %}
+                    <script type="application/javascript" src = "{% static 'scripts/jscolor.js'%}"></script>
+                        <button class="jscolor {valueElement:'chosen-value', onFineChange:'changeBodyBg(this)'}"; style="font-size : 20px; border: none">
+            		        Choose
+                        </button>
+                    <!-- This draws out the Change Font Size part in settings -->
+                    <div style = "padding-top: 30px">
+                    <h4> Font Size</h4>
+                        <div class="btn-group" role="group" aria-label="Basic example" >
+                        <button style ="background-color: white; color: black" type="button" onclick="changeBodyText('75%')" class="btn btn-secondary">Small</button>
+                        <button style ="background-color: white; color: black" type="button" onclick="changeBodyText('125%')"class="btn btn-secondary">Medium</button>
+                        <button style ="background-color: white; color: black" type="button" onclick="changeBodyText('150%')"class="btn btn-secondary">Large</button>
+                    </div>
+                    </div>
 
-            <!-- This draws out the slider to select Line Spacing -->
-            <div style = "padding-top: 30px">
-              <h4> Line Spacing</h4>
+                    <!-- This draws out the dropdown table for choosing a font -->
+                    <div style = "padding-top: 30px">
+                    <h4> Font Family</h4>
+                        <div class="dropdown">
+                            <button style ="background-color: white; color: black" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Choose a Font
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" onchange="changeFont (this)">
+                                <a class="dropdown-item" href="javascript:changeFont('serif')">Times New Roman</a>
+                                <a class="dropdown-item" href="javascript:changeFont('sans-serif')">Arial</a>
+                                <a class="dropdown-item" href="javascript:changeFont('georgia')">Georgia</a>
+                                <a class="dropdown-item" href="javascript:changeFont('monospace')">Monospace</a>
+                                <a class="dropdown-item" href="javascript:changeFont('cursive')">Cursive</a>
+                                <a class="dropdown-item" href="javascript:changeFont('fantasy')">Fantasy</a>
+                            </div>
+                        </div>
+                        </div>
 
-              <div class="dropdown">
-                 <button style ="background-color: white; color: black;" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 Choose Line Spacing
-                 </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="javascript:changeBodyLineHeight('normal')">Normal</a>
-                    <a class="dropdown-item" href="javascript:changeBodyLineHeight('1.6')">1.6</a>
-                    <a class="dropdown-item" href="javascript:changeBodyLineHeight('2')">2</a>
-                    <a class="dropdown-item" href="javascript:changeBodyLineHeight('3')">3</a>
-                    <a class="dropdown-item" href="javascript:changeBodyLineHeight('4')">4</a>
-                  </div>
-              </div>
+                    <!-- This draws out the slider to select Line Spacing -->
+                    <div style = "padding-top: 30px">
+                    <h4> Line Spacing</h4>
+                        <div class="dropdown">
+                            <button style ="background-color: white; color: black;" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Choose Line Spacing
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="javascript:changeBodyLineHeight('normal')">Normal</a>
+                                <a class="dropdown-item" href="javascript:changeBodyLineHeight('1.6')">1.6</a>
+                                <a class="dropdown-item" href="javascript:changeBodyLineHeight('2')">2</a>
+                                <a class="dropdown-item" href="javascript:changeBodyLineHeight('3')">3</a>
+                                <a class="dropdown-item" href="javascript:changeBodyLineHeight('4')">4</a>
+                            </div>
+                        </div>
+                    </div>
 
-              <!--
-              <div class="btn-group" role="group" aria-label="Basic example" >
-                <button type="button" onclick="changeBodyLineHeight('normal')" class="btn btn-secondary">1.0</button>
-                <button type="button" onclick="changeBodyLineHeight('1.6')"class="btn btn-secondary">1.6</button>
-                <button type="button" onclick="changeBodyLineHeight('2')"class="btn btn-secondary">2</button>
-                <button type="button" onclick="changeBodyLineHeight('2.5')"class="btn btn-secondary">2.5</button>
-              </div>
-            -->
-            </div>
-
-            <!-- This draws out the colour palete for selecting font colour -->
-            <div style = "padding-top: 30px">
-              <h4> Font Color</h4>
-              <button class="jscolor {valueElement:'chosen-value', onFineChange:'changeFontColor(this)'}"; style="font-size : 20px; border: none";>
-                Choose
-                </button>
-            </div>
-        </div>
-
+                    <!-- This draws out the colour palete for selecting font colour -->
+                    <div style = "padding-top: 30px">
+                    <h4> Font Color</h4>
+                        <button class="jscolor {valueElement:'chosen-value', onFineChange:'changeFontColor(this)'}"; style="font-size : 20px; border: none";>
+                        Choose
+                        </button>
+                    </div>
         </nav>
 
         <!-- Page Content  -->
         <div id="content">
-            <nav class="navbar navbar-dark bg-dark navbar-fixed-top" >
-                <button type="button" id="sidebarCollapse" class="btn btn-outline-success my-2 my-sm-0 ">
-                        <!--<i class="fas fa-align-left"></i>-->
-                        <!--<span class="navbar-toggler-icon"></span>-->
+                <nav class="navbar navbar-dark bg-dark navbar-fixed-top" >
+                    <button type="button" id="sidebarCollapse" class="btn btn-outline-success my-2 my-sm-0 ">
                        <span style ="color: white">Editor</span>
-                </button>
-                 <a class="navbar-brand" style = "color:white; margin-left: -125px; text-align: center; " href="{% url 'book' %}" >Dyslexia Friendly Books</a>
+                    </button>
+                    <a class="navbar-brand" style = "color:white; margin-left: -125px; text-align: center; " href="{% url 'book' %}" >GutenRead</a>
+                    <button onclick="hide()" type="button" class = "btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40; ">
+                        <span style ="color: white">Assistance</span>
+                    </button>
+                </nav>
 
-             </nav>
+                <div class="container-fluid">
+                    <div class = "row">
+                        <div  class="col-sm-7" style="margin-left: 300px">
+                            <div style="padding-top: 15px">
+                            {% block content %}
+                                <h1 style = "padding-bottom: 2vh; text-align: center; font-weight: bold">{{name}}</h1>
+                                {% for c in content %}
+                                    <p id = "textBox">{{c}}</p>
+                                {% endfor %}
+                            {% endblock %}
+                            </div>
+                        </div>
 
-
-
-            <div class="container-fluid">
-
-
+                        <div class = "col-sm-2" style = "margin-top: 40px">
+                             <div class="sticky-top" id = "hide" style ="margin-left: 80px">
+                                <h3 style="color: #26a848; font-weight:bold"> Assistance </h3>
+                                <textarea id="sel" rows="3" cols="25" name = "sel"  ></textarea>
+                                    <button name = "type" id = "tts" value = "tts" type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40">
+                                        <span style ="color: white">Text to Speech</span>
+                                    </button>
+                                    <button name = "type" id = "syll" value = "syll" type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40;">
+                                        <span style ="color: white">Syllables</span>
+                                    </button>
+                                    <button name = "type" id = "syns" value = "syns" type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40;">
+                                        <span style ="color: white">Synonyms</span>
+                                    </button>
+                             </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div  class="col-sm-7" style="margin-left: 300px">
-                <div style="padding-top: 15px">     <!-- style="line-height: 2" -->
-
-
-
-
-                    {% block content %}
-
-
-                    <h1 style = "padding-bottom: 2vh; text-align: center; font-weight: bold">{{name}}</h1>
-
-                    {% for c in content %}
-                    <p id = "textBox">{{c}}</p>
-                    {% endfor %}
-
-                    {% endblock %}
-
-
-                </div>
-             </div>
-
         </div>
-
-        <div class = "col-sm-2" style = "margin-top: 40px">
-            <button onclick="hide()" type="button" class = "btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40; ">
-                <span style ="color: white">Assistance</span>
-            </button>
-                <div class="sticky-top" id = "hide" style ="margin-top: 80px">
-                    <h3 style="color: #26a848; font-weight: bold"> Assistance </h3>
-                    <textarea id="sel" rows="3" cols="25" name = "sel"  ></textarea>
-                    <button name = "type" id = "tts" value = "tts" type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40">
-                        <span style ="color: white">Text to Speech</span>
-                    </button>
-
-                    <button name = "type" id = "syll" value = "syll" type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40;">
-                        <span style ="color: white">Syllables</span>
-                    </button>
-
-                    <button name = "type" id = "syns" value = "syns" type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40;">
-                        <span style ="color: white">Synonyms</span>
-                    </button>
-                </div>
-        </div>
-    </div>
-
+</body>
 
    
     
