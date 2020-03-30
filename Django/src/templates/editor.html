@@ -91,11 +91,29 @@
 
                                 <!-- This draws out the colour palete for selecting font colour -->
                                 <h4 style ="font-weight:bold;"> Background Color </h4>
+                                    <!--
                                     {% load static %}
                                     <script type="application/javascript" src = "{% static 'scripts/jscolor.js'%}"></script>
+
+                                    <script src="jscolor.js"> </script>
                                     <button class="jscolor {valueElement:'chosen-value', onFineChange:'changeBodyBg(this)'}"; style="font-size : 20px; border: none; ">
-            		                Choose
+            		                         Choose
                                     </button>
+                                    -->
+                                    <div class="dropdown">
+                                        <button style ="background-color: #1E88E5; color: white" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Choose
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" onchange="changeBodyBg (this)">
+                                            <a class="dropdown-item" style ="color: #FFFFFF; background-color: #66CCFF" href="javascript:changeBodyBg('66CCFF')">Light Blue</a>
+                                            <a class="dropdown-item" style ="color: #FFFFFF; background-color: #00008b" href="javascript:changeBodyBg('00008b')">Dark Blue</a>
+                                            <a class="dropdown-item" style ="color: #FFFFFF; background-color: #000000" href="javascript:changeBodyBg('000000')">Black</a>
+                                            <a class="dropdown-item" style ="background-color: #ED0000" href="javascript:changeBodyBg('ED0000')">Red</a>
+                                            <a class="dropdown-item" style ="background-color: #FFFF00" href="javascript:changeBodyBg('FFFF00')">Yellow</a>
+                                            <a class="dropdown-item" style ="background-color: #fffdd0" href="javascript:changeBodyBg('fffdd0')">Cream</a>
+                                        </div>
+                                    </div>
+
                                  <!-- This draws out the Change Font Size part in settings -->
                             <div style = "padding-top: 30px">
                                 <h4 style ="font-weight:bold;"> Font Size</h4>
@@ -142,9 +160,25 @@
                             <!-- This draws out the colour palete for selecting font colour -->
                             <div style = "padding-top: 30px">
                                 <h4 style ="font-weight:bold;"> Font Color</h4>
+                                  <!--
                                     <button class="jscolor {valueElement:'chosen-value', onFineChange:'changeFontColor(this)'}"; style="font-size : 20px; border: none;">
                                     Choose
                                      </button>
+                                  -->
+
+                                  <div class="dropdown">
+                                      <button style ="background-color: #1E88E5; color: white" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Choose
+                                      </button>
+                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" onchange="changeFontColor (this)">
+                                        <a class="dropdown-item" style ="color: #FFFFFF; background-color: #66CCFF" href="javascript:changeFontColor('66CCFF')">Light Blue</a>
+                                        <a class="dropdown-item" style ="color: #FFFFFF; background-color: #00008b" href="javascript:changeFontColor('00008b')">Dark Blue</a>
+                                        <a class="dropdown-item" style ="color: #FFFFFF; background-color: #000000" href="javascript:changeFontColor('000000')">Black</a>
+                                        <a class="dropdown-item" style ="background-color: #ED0000" href="javascript:changeFontColor('ED0000')">Red</a>
+                                        <a class="dropdown-item" style ="background-color: #FFFF00" href="javascript:changeFontColor('FFFF00')">Yellow</a>
+                                        <a class="dropdown-item" style ="background-color: #fffdd0" href="javascript:changeFontColor('fffdd0')">Cream</a>
+                                      </div>
+                                  </div>
                             </div>
                             </div>
                         </div>
@@ -181,8 +215,8 @@
         </div>
 </body>
 
-   
-    
+
+
     <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
@@ -226,13 +260,13 @@
                     if (status === 'success') {
                         console.log("success");
                         console.log(responseText);
-                        if(responseText.size == 0){ 
+                        if(responseText.size == 0){
                             document.getElementById("sel").value = "Selected Word: " + selectedTxt + "\nNo available synonymns";
                         }
                         else{
                             document.getElementById("sel").value = "Selected Word: " + selectedTxt + "\nSynonynms: "+ responseText;
                         }
-                        
+
                     } else {
                         console.log(responseText);
                         console.log("failed");
@@ -288,12 +322,12 @@
             }
         }
 
-        
+
 
         function Successfully_Received (data, textStatus, jqXHR){
             console.log("Successfully logged")
         }
-        
+
 
     </script>
 
