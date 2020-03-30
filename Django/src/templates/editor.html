@@ -46,7 +46,8 @@
         }
 
         function changeBodyText(size){
-        document.body.style.fontSize = size;
+            text = document.getElementById( 'textBox' );
+        text.style.fontSize = size;
         }
 
         function changeBodyLineHeight(size){
@@ -65,9 +66,8 @@
     </script>
 
 <body>
-    <div class="wrapper">
-        <!-- Sidebar  -->
 
+    <div class="wrapper">
 
         <!-- Page Content  -->
         <div id="content">
@@ -81,8 +81,10 @@
                     </button>
                 </nav>
 
+
                 <div class="container-fluid">
                     <div class = "row">
+
                         <div class = "col-sm-2" style = "margin-top: 40px">
                             <div class="sticky-top" id = "hideEditor">
                                 <h3 style="color: #114C80; font-weight:bold"> Editor </h3>
