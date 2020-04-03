@@ -9,8 +9,26 @@ register = template.Library()
 import nltk
 from nltk.tokenize import SyllableTokenizer
 from nltk.corpus import wordnet
+from nltk.corpus import stopwords
+ 
 #nltk.download('punkt')
 #nltk.download('averaged_perceptron_tagger')
+#nltk.download('stopwords')
+
+#returns text with stop words removed
+def removeStopWords(text):
+    stopWords = set(stopwords.words('english')) 
+    tokenisedWords = nltk.word_tokenize(text)
+
+    filteredText = [w for w in tokenisedWords if not w in stopWords] 
+  
+    filteredText = [] 
+    
+    for w in tokenisedWords: 
+        if w not in stopWords: 
+            filteredText.append(w) 
+
+    return filteredText
 
 #returns the type of syllable, 
 #returns "Error" if the text contains no vowels and is therefore not a syllable   
@@ -105,11 +123,11 @@ def getBookTextByNumber(bookID, strip):
     return bookText
 
 
+bookText = getBookTextByNumber(2701, True)
+pageText = getBookPage(bookText, 3000, 1)
+#print(getTextSyllables(pageText))
 
-
-# bookText = getBookTextByNumber(2701, True)
-# pageText = getBookPage(bookText, 3000, 1)
-# print(getTextSyllables(pageText))
+print(removeStopWords(pageText))
 
 #findBookByAuthor('Melville, Hermann')
 
