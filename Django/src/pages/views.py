@@ -28,7 +28,10 @@ def editor_view(request, book_num):
     #     textSelected = request.POST['text']
 
 	name = Book.get_book_name(book_num)
-
+	bookText = getBookTextByNumber(book_num, False)
+	filteredText = removeStopWords(bookText)
+	#print(filteredText)
+	
 	if request.method == 'POST':
 		print("Run2")
 		if request.POST.get('type') and request.POST.get('type') == "syll":
@@ -39,12 +42,15 @@ def editor_view(request, book_num):
 
 			print(textSelected)
 
+			noStopWords = removeStopWords(textSelected)
+			print(noStopWords)
+
 			# syllables = getTextSyllables(textSelected)
 
 			# print(syllables)
 
 	args = {
-		'content': [getBookTextByNumber(book_num, False)], 'name': name
+		'content': [bookText], 'content2': [filteredText], 'name': name
 	}
 
 	return render(request, "editor.html", args)
@@ -59,19 +65,9 @@ def Book_view(request):
 	return render(request, "home.html", args)
 
 
-def getTextSyllables(request, txt):
-	print(txt)
-	textSyllables = []
-	SSP = SyllableTokenizer()
-	tokenised_sentences = nltk.sent_tokenize(txt)
-	for sentence in tokenised_sentences:
-		tokenised_words = nltk.word_tokenize(sentence)
-		#tagged_words = nltk.pos_tag(tokenised_words)
-		for word in tokenised_words:
-			tokenised_syllables = SSP.tokenize(word)
-			# textSyllables = textSyllables.join(tokenised_syllables)
-			textSyllables += tokenised_syllables
-	print(textSyllables)
+def getSyllables(request, txt):
+
+	textSyllables = getTextSyllables(txt)
 	
 	return JsonResponse(textSyllables, safe=False)
 

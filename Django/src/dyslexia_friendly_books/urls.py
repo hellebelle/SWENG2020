@@ -28,6 +28,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('pages.urls')),
     path('getTextToSpeech/<str:text>', getTextToSpeech, name='getTextToSpeech'),
-    path('getTextSyllables/<str:txt>', getTextSyllables, name='getTextSyllables'),
+    path('getSyllables/<str:txt>', getSyllables, name='getSyllables'),
     path('getSynoynms/<str:s>', getSynoynms, name='getSynoynms'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

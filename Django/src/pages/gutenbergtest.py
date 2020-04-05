@@ -73,6 +73,20 @@ def getSyllableType(syllable):
 
     return "Closed"
 
+def getTextSyllables(text):
+    textSyllables = []
+    SSP = SyllableTokenizer()
+    tokenised_sentences = nltk.sent_tokenize(text)
+    for sentence in tokenised_sentences:
+        tokenised_words = nltk.word_tokenize(sentence)
+        #tagged_words = nltk.pos_tag(tokenised_words)
+        for word in tokenised_words:
+            tokenised_syllables = SSP.tokenize(word)
+            #textSyllables = textSyllables.join(tokenised_syllables)
+            textSyllables += tokenised_syllables
+
+    return textSyllables
+
 def createBookPages(text, charCount):
     
     pageText = ([text[i:i+charCount] for i in range(0, len(text), charCount)]) 
@@ -123,11 +137,11 @@ def getBookTextByNumber(bookID, strip):
     return bookText
 
 
-bookText = getBookTextByNumber(2701, True)
-pageText = getBookPage(bookText, 3000, 1)
+# bookText = getBookTextByNumber(2701, True)
+# pageText = getBookPage(bookText, 3000, 1)
 #print(getTextSyllables(pageText))
 
-print(removeStopWords(pageText))
+# print(removeStopWords(pageText))
 
 #findBookByAuthor('Melville, Hermann')
 

@@ -241,7 +241,7 @@
             $("#syll").on('click', function () {
                 selectedTxt = $("#sel").val();
                 console.log("selected: ", selectedTxt);
-                $.get({type:"GET", url: "http://127.0.0.1:8000/getTextSyllables/" + selectedTxt}, function(responseText, status) {
+                $.get({type:"GET", url: "http://127.0.0.1:8000/getSyllables/" + selectedTxt}, function(responseText, status) {
                     if (status === 'success') {
                         console.log("success");
                         console.log(responseText);
