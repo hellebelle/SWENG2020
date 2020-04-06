@@ -42,10 +42,18 @@ def editor_view(request, book_num):
 
 #Returns a list of Syllables for the given word
 def getSyllables(request, text):
-
-	textSyllables = getTextSyllables(text)
+    textSyllables = []
+    SSP = SyllableTokenizer()
+    tokenised_sentences = nltk.sent_tokenize(text)
+    for sentence in tokenised_sentences:
+        tokenised_words = nltk.word_tokenize(sentence)
+        #tagged_words = nltk.pos_tag(tokenised_words)
+        for word in tokenised_words:
+            tokenised_syllables = SSP.tokenize(word)
+            #textSyllables = textSyllables.join(tokenised_syllables)
+            textSyllables += tokenised_syllables
 	
-	return JsonResponse(textSyllables, safe=False)
+    return JsonResponse(textSyllables, safe=False)
 
 #returns list of synoynms for a word, 
 #returns empty list if:
@@ -80,26 +88,11 @@ def getTextToSpeech(request, text):
 
 def getBookTextByNumber(bookID, strip):
 
-    bookText = load_etext(bookID)
-
-    if strip:
-        bookText = strip_headers(bookText).strip()
+    bookText = strip_headers(load_etext(bookID)).strip()
         
     return bookText
 
-def getTextSyllables(text):
-    textSyllables = []
-    SSP = SyllableTokenizer()
-    tokenised_sentences = nltk.sent_tokenize(text)
-    for sentence in tokenised_sentences:
-        tokenised_words = nltk.word_tokenize(sentence)
-        #tagged_words = nltk.pos_tag(tokenised_words)
-        for word in tokenised_words:
-            tokenised_syllables = SSP.tokenize(word)
-            #textSyllables = textSyllables.join(tokenised_syllables)
-            textSyllables += tokenised_syllables
-    
-    return textSyllables
+
 
 #returns text with stop words removed
 def removeStopWords(text):
