@@ -1,19 +1,23 @@
-from nltk.corpus import wordnet
-from nltk.tokenize import SyllableTokenizer
-import nltk
+
+from django import template
+from django.template.defaultfilters import stringfilter
+from django.http import JsonResponse
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Book
-from .gutenbergtest import *
+
+import nltk
+from nltk.corpus import wordnet
+from nltk.corpus import stopwords
+from nltk.tokenize import SyllableTokenizer
+
 from gutenberg.acquire import load_etext
 from gutenberg.cleanup import strip_headers
 from gutenberg.query import get_etexts
 from gutenberg.query import get_metadata
-from django import template
-from django.template.defaultfilters import stringfilter
-from django.http import JsonResponse
-#	If google_speech is not installed please remove next line
+
 from google_speech import Speech
+
+from .models import Book
 
 register = template.Library()
 
@@ -73,4 +77,42 @@ def getTextToSpeech(request, text):
     speech = Speech(text, lang)
     speech.play()
 
-	
+
+def getBookTextByNumber(bookID, strip):
+
+    bookText = load_etext(bookID)
+
+    if strip:
+        bookText = strip_headers(bookText).strip()
+        
+    return bookText
+
+def getTextSyllables(text):
+    textSyllables = []
+    SSP = SyllableTokenizer()
+    tokenised_sentences = nltk.sent_tokenize(text)
+    for sentence in tokenised_sentences:
+        tokenised_words = nltk.word_tokenize(sentence)
+        #tagged_words = nltk.pos_tag(tokenised_words)
+        for word in tokenised_words:
+            tokenised_syllables = SSP.tokenize(word)
+            #textSyllables = textSyllables.join(tokenised_syllables)
+            textSyllables += tokenised_syllables
+    
+    return textSyllables
+
+#returns text with stop words removed
+def removeStopWords(text):
+    stopWords = set(stopwords.words('english')) 
+    tokenisedWords = nltk.word_tokenize(text)
+
+    filteredText = [w for w in tokenisedWords if not w in stopWords] 
+  
+    filteredText = [] 
+    
+    for w in tokenisedWords: 
+        if w not in stopWords: 
+            filteredText.append(w) 
+
+    return filteredText
+
