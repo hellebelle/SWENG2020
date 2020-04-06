@@ -30,7 +30,7 @@ def Book_view(request):
 
 def editor_view(request, book_num):
 	name = Book.get_book_name(book_num)
-	bookText = getBookTextByNumber(book_num, False)
+	bookText = strip_headers(load_etext(book_num)).strip()
 	filteredText = removeStopWords(bookText)
 
 	args = {
@@ -38,7 +38,6 @@ def editor_view(request, book_num):
 	}
 
 	return render(request, "pages/editor.html", args)
-
 
 #Returns a list of Syllables for the given word
 def getSyllables(request, text):
@@ -84,15 +83,6 @@ def getTextToSpeech(request, text):
     lang = "en"
     speech = Speech(text, lang)
     speech.play()
-
-
-def getBookTextByNumber(bookID, strip):
-
-    bookText = strip_headers(load_etext(bookID)).strip()
-        
-    return bookText
-
-
 
 #returns text with stop words removed
 def removeStopWords(text):
