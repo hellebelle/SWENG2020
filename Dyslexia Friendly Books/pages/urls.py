@@ -7,5 +7,4 @@ urlpatterns = [
     path('getSynoynms/<str:text>', getSynoynms, name="getSynoynms"),
     path('getTextToSpeech/<str:text>', getTextToSpeech, name="getTextToSpeech"),
     path('<int:book_num>/', editor_view, name="editor"),
-
 ]
