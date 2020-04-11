@@ -75,7 +75,7 @@
                     <button onclick="hideTest()"type="button"  class="btn btn-outline-success my-2 my-sm-0 ">
                        <span style ="color: white">Editor</span>
                     </button>
-                    <a class="navbar-brand" style = "color:white; margin-left: -125px; text-align: center; " href="{% url 'book' %}" >GutenRead</a>
+                    <a class="navbar-brand" style = "color:white; margin-left: -60px; text-align: center; " href="{% url 'book' %}" >GutenRead</a>
                     <button onclick="hide()" type="button" class = "btn btn-outline-success my-2 my-sm-0 " style = "background-color: #353a40; ">
                         <span style ="color: white">Assistance</span>
                     </button>
@@ -208,6 +208,9 @@
                                         <span style ="color: white">Synonyms</span>
                                     </button>
                              </div>
+                                <div id = "test">
+
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -246,6 +249,7 @@
                         console.log("success");
                         console.log(responseText);
                         document.getElementById("sel").value = "Selected Word: " + selectedTxt + "\nSyllables: "+ responseText;
+
                     } else {
                         console.log(responseText);
                         console.log("failed");

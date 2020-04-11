@@ -4,6 +4,7 @@ from django.template.defaultfilters import stringfilter
 from django.http import JsonResponse
 from django.http import HttpResponse
 from django.shortcuts import render
+from .forms import FeedbackForm
 
 import nltk
 from nltk.corpus import wordnet
@@ -21,6 +22,19 @@ from .models import Book
 
 register = template.Library()
 
+
+def feedback_form(request):
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return render(request, 'pages/thanks.html')
+    else:
+        form = FeedbackForm()
+    return render(request, 'pages/feedback.html', {'form': form})
+
+
 def Book_view(request):
 	books = Book.objects.all()
 	args = {
@@ -28,7 +42,7 @@ def Book_view(request):
 	}
 	return render(request, "pages/home.html", args)
 
-def editor_view(request, book_num):
+def editor_view(request,  book_num):
 	name = Book.get_book_name(book_num)
 	bookText = strip_headers(load_etext(book_num)).strip()
 	filteredText = removeStopWords(bookText)
@@ -38,6 +52,26 @@ def editor_view(request, book_num):
 	}
 
 	return render(request, "pages/editor.html", args)
+
+def decison_view(request, book_num):
+    args = {
+        'bookNumber': book_num
+    }
+    return render(request, "pages/decision.html", args)
+
+def feedback_view(request):
+    return render(request, "pages/feedback.html")
+
+def regular_view(request,  book_num):
+	name = Book.get_book_name(book_num)
+	bookText = strip_headers(load_etext(book_num)).strip()
+	filteredText = removeStopWords(bookText)
+
+	args = {
+		'content': [bookText], 'content2': [filteredText], 'name': name
+	}
+
+	return render(request, "pages/regularText.html", args)
 
 #Returns a list of Syllables for the given word
 def getSyllables(request, text):

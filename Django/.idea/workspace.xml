@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f48775e6-61a2-4032-a8e3-565a556fca75" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Dyslexia Friendly Books/pages/templates/pages/editor.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Dyslexia Friendly Books/pages/templates/pages/editor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Dyslexia Friendly Books/pages/templates/pages/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Dyslexia Friendly Books/pages/templates/pages/home.html" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/dyslexia_friendly_books/settings.py" />
+        <option value="$PROJECT_DIR$/src/pages/gutenbergtest.py" />
+        <option value="$PROJECT_DIR$/src/pages/models.py" />
+        <option value="$PROJECT_DIR$/src/templates/speak.html" />
+        <option value="$PROJECT_DIR$/src/static/scripts/jscolor.js" />
+        <option value="$PROJECT_DIR$/src/dyslexia_friendly_books/urls.py" />
+        <option value="$PROJECT_DIR$/src/pages/googleTTS.py" />
+        <option value="$PROJECT_DIR$/src/pages/test.py" />
+        <option value="$PROJECT_DIR$/src/pages/views.py" />
+        <option value="$PROJECT_DIR$/src/static/css/style.css" />
+        <option value="$PROJECT_DIR$/src/templates/home.html" />
+        <option value="$PROJECT_DIR$/src/templates/editor.html" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="980" />
+    <option name="height" value="1050" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Dyslexia Friendly Books" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f48775e6-61a2-4032-a8e3-565a556fca75" name="Default Changelist" comment="" />
+      <created>1583161907531</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583161907531</updated>
+      <workItem from="1583161912606" duration="268000" />
+      <workItem from="1583177174941" duration="8470000" />
+      <workItem from="1583439275635" duration="7111000" />
+      <workItem from="1584374418249" duration="9147000" />
+      <workItem from="1584446854595" duration="6030000" />
+      <workItem from="1584453502063" duration="1252000" />
+      <workItem from="1584542396742" duration="6224000" />
+      <workItem from="1584621702543" duration="2501000" />
+      <workItem from="1584631445440" duration="4207000" />
+      <workItem from="1584720217691" duration="6911000" />
+      <workItem from="1584966649341" duration="105000" />
+      <workItem from="1585058476906" duration="2629000" />
+      <workItem from="1585168100837" duration="2410000" />
+      <workItem from="1585238838222" duration="32000" />
+      <workItem from="1585396702060" duration="1258000" />
+      <workItem from="1585428058440" duration="11127000" />
+      <workItem from="1585578684325" duration="1583000" />
+      <workItem from="1585580273554" duration="50000" />
+      <workItem from="1585580464558" duration="9699000" />
+      <workItem from="1586182993361" duration="621000" />
+      <workItem from="1586627920405" duration="57000" />
+      <workItem from="1586628072143" duration="59000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="82000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12684564" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286119" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.20679887" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.3286119" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="right" id="Database" order="4" weight="0.3295302" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

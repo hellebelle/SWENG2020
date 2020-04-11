@@ -1,4 +1,12 @@
 from django.db import models
+from django import forms
+
+PREFERENCES = [
+    ('Text to Speech', 'Text to Speech'),
+    ('Syllables', 'Syllables'),
+    ('Synonyms', 'Synonyms'),
+    ('Visual Editor', 'Visual Editor'),
+    ]
 
 class Book(models.Model):
     book_num = models.IntegerField(primary_key=True)
@@ -15,3 +23,18 @@ class Book(models.Model):
         for book in books:
             if book.book_num == number:
                 return book.book_title
+
+
+class Feedback(models.Model):
+    userName = models.CharField(max_length=120)
+    email = models.EmailField()
+    firstPreference = forms.CharField(label='First Preference', widget=forms.Select(choices=PREFERENCES))
+    secondPreference = forms.CharField(label='Second Preference', widget=forms.Select(choices=PREFERENCES))
+    thirdPreference = forms.CharField(label='Third Preference', widget=forms.Select(choices=PREFERENCES))
+    fourthPreference = forms.CharField(label='Fourth Preference', widget=forms.Select(choices=PREFERENCES))
+    happy = models.BooleanField()
+    date = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.userName
+

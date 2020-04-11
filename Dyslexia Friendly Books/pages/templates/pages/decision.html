@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Decision </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href=" {% static 'images/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static  'images/favicon-16x16.png' &}">
+    <link rel="manifest" href="/site.webmanifest">
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <!--Google Font Chilanka -->
+    <link href="https://fonts.googleapis.com/css?family=Chilanka&display=swap" rel="stylesheet">
+    <link href="{% static 'css/icofont/icofont.min.css' %}" rel="stylesheet">
+</head>
+<style>
+
+    {% load static %}
+
+    body
+    {
+        background-image: url("{% static 'images/zb.png' %}")
+    }
+
+    #editing i {
+    font-size: 200px
+    }
+    #regular i {
+    font-size: 220px
+    }
+    #editing:hover
+    {
+        background-color: #B8E1FC
+    }
+
+
+    #editing{
+        height:100%;
+        float:right;
+        background-color:white;
+        width:35%;
+        margin-right:10%;
+        border-radius:25px;
+        border: 4px solid #1E88E5;
+        cursor:pointer"
+    }
+
+    #regular
+    {
+        height:100%;
+        float:left;
+        background-color:white;
+        width:35%;
+        margin-left:10%;
+        border-radius:25px;
+        border: 4px solid #1E88E5;
+        cursor:pointer
+    }
+
+    #regular:hover
+    {
+        background-color: #B8E1FC
+    }
+</style>
+<body>
+{% load static %}
+
+	<div style= "height:17.5vh"></div>
+	<div style = "height:50vh;width:70vw;margin:auto;">
+		<!--panel 1: Regular-->
+		<a href="regular">
+			<div id = "regular">
+				<div style = "height:70%;width:100%;">
+					<div style = "height:20%"></div>
+					<div style = "height:65%;width:65%; margin-left: 28%;margin:auto;">
+                        <i class="icofont-ebook"></i>
+					</div>
+				</div>
+				<!--Text-->
+				<div style = "height:30%;width:100%;position:relative">
+					<div style = "text-align:center;margin: 0;position: absolute;top: 50%;left: 50%;margin-right: -50%;transform: translate(-50%, -50%);">
+						<div style = "position:relative;height:100%;width:100%;font-size:2em;color:#0068AF; font-weight: bold">Regular View</div>
+					</div>
+				</div>
+			</div>
+		</a>
+		<!--panel 2: Editor-->
+		{% load static %}
+		<a class = "editing" href = "editor">
+			<div id = "editing">
+				<div style = "height:70%;width:100%">
+					<div style = "height:20%"></div>
+					<div style = "height:65%;width:65%;margin:auto;">
+                        <i class="icofont-ui-edit "></i>
+					</div>
+				</div>
+				<!--Text-->
+				<div style = "height:30%;width:100%;position:relative">
+					<div style = "text-align:center;margin: 0;position: absolute;top: 50%;left: 50%;margin-right: -50%;transform: translate(-50%, -50%);">
+						<div style = "position:relative;height:100%;width:100%;font-size:2em;color:#0068AF;font-weight: bold">Editor View</div>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+
+</body>
+</html>
