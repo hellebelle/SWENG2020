@@ -12,3 +12,4 @@ urlpatterns = [
     path('<int:book_num>/regular', regular_view, name="regular"),
     path('feedback', feedback_form, name="feedback"),
 ]
+

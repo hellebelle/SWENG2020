@@ -184,23 +184,12 @@
                         </div>
 
                         <div  class="col-sm-7" >
-                            <div style="padding-top: 15px; margin-left: 60px">
+                            <div style="padding-top: 15px; margin-left: 60px" id = "text-container">
                             {% block content %}
                                 <h1 style = "padding-bottom: 2vh; text-align: center; font-weight: bold">{{name}}</h1>
-							
-									{% if stopWords %}
-										{% for c in content %}
-											<p id = "textBox">{{c}}</p>
-											console.log("StopWords");
-										{% endfor %}
-									{% endif %}
-									{% if stopWords == False%}
-										{% for c in content2 %}
-											<p id = "textBox">{{c}}</p>
-											console.log("NoStopWords");
-										{% endfor %}
-									{% endif %}
-			
+                                {% for c in content %}
+                                    <p id = "textBox">{{c}}</p>
+                                {% endfor %}
                             {% endblock %}
                             </div>
                         </div>
@@ -216,15 +205,15 @@
                                         <span style ="color: white">Syllables</span>
                                     </button>
                                     <button name = "type" id = "syns" value = "syns" type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #1E88E5; color: white">
-                                        <span style ="color: white">Synonyms</span>
+                                        <span style ="color: white" >Synonyms</span>
                                     </button>
-									<button name = "type" id = "stops" value = "syns" type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #1E88E5; color: white">
-                                        <span style ="color: white">Remove Stop Words</span>
+									<button name = "type" id = "stops" value = "stops" type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #1E88E5; color: white">
+                                        <span style ="color: white" id = "stops-child" >Remove Stop Words</span>
                                     </button>
                              </div>
-                                <div id = "test">
+                             <div id = "test">
 
-                                </div>
+                             </div>
                         </div>
                     </div>
                 </div>
@@ -293,27 +282,26 @@
             });
 			
 			$("#stops").on('click', function () {
-			
-				console.log("Run1")
-				
-				$.get({type:"GET", url: "http://127.0.0.1:8000/stopWordsToggle/"}, function(responseText, status) {
-				
-					if (status === 'success') {
-                        console.log("success");
-                        console.log(responseText);
-                        if(responseText.size == 0){
-                            console.log("responseText.size == 0")
-                        }
-                        else{
-                            console.log("Else")
-                        }
+                if(document.getElementById("stops-child").innerHTML == "Remove Stop Words"){
+                    document.getElementById("stops-child").innerHTML = "Load Original Text";
+                    document.getElementById("text-container").innerHTML = 
+                            `{% block content2 %}
+                                <h1 style = "padding-bottom: 2vh; text-align: center; font-weight: bold">{{name}}</h1>
+                                {% for c in content2 %}
+                                    <p id = "textBox">{{c}}</p>
+                                {% endfor %}
+                            {% endblock %}`
+                } else{
+                    document.getElementById("stops-child").innerHTML = "Remove Stop Words";
+                    document.getElementById("text-container").innerHTML = 
+                            `{% block contentOriginal %}
+                                <h1 style = "padding-bottom: 2vh; text-align: center; font-weight: bold">{{name}}</h1>
+                                {% for c in content %}
+                                    <p id = "textBox">{{c}}</p>
+                                {% endfor %}
+                            {% endblock %}`
 
-                    } else {
-                        console.log(responseText);
-                        console.log("failed");
-                    }
-		
-				});
+                }
             });
 			
         });
