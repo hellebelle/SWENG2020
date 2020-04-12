@@ -19,7 +19,7 @@
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href=" {% static 'images/apple-touch-icon.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static  'images/favicon-16x16.png' &}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static  'images/favicon-16x16.png' %}">
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
@@ -27,6 +27,14 @@
     <link href="https://fonts.googleapis.com/css?family=Chilanka&display=swap" rel="stylesheet">
     <title>Thank You </title>
 </head>
+<style>
+    body{
+        font-family: 'Chilanka', cursive;
+    }
+    p{
+        font-family: 'Chilanka', cursive;
+    }
+</style>
 <body>
    <div class ="jumbotron text-center">
   <h1 class="display-3">Thank You!</h1>
@@ -34,7 +42,7 @@
   <hr>
 
   <p class="lead">
-    <a class="btn btn-primary btn-sm" href="{% url 'book' %}" role="button" style="color: white">Return to Homepage</a>
+    <a class="btn btn-primary btn-sm" href="{% url 'book' %}" role="button" style="color: white;background-color: #1E88E5">Return to Homepage</a>
   </p>
 </div>
 </body>

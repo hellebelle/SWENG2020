@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Feedback</title>
-</head>
-<body>
-    {% block title %}Feedback Form{% endblock %}
+{% extends 'pages/base.html' %}
 
-{% block body %}
-<form method="POST">
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <form method="post" novalidate>
     {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" />
-</form>
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-success" style="background-color: #1E88E5">Submit</button>
+  </form>
 {% endblock %}
-</body>
-</html>

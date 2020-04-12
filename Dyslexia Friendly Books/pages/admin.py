@@ -3,7 +3,7 @@ from .models import Book, Feedback
 
 
 class FeedbackAdmin(admin.ModelAdmin):
-    list_display = ('firstPreference', 'secondPreference', 'thirdPreference', 'fourthPreference', 'userName', 'date', 'happy',)
+    list_display = ('firstPreference', 'secondPreference', 'thirdPreference', 'fourthPreference', 'Name', 'date', 'happy')
 
     class Meta:
         model = Feedback

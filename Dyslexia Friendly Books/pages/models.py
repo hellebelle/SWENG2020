@@ -1,12 +1,11 @@
 from django.db import models
 from django import forms
 
-PREFERENCES = [
-    ('Text to Speech', 'Text to Speech'),
-    ('Syllables', 'Syllables'),
-    ('Synonyms', 'Synonyms'),
-    ('Visual Editor', 'Visual Editor'),
-    ]
+FAVORITE_COLORS_CHOICES = [
+    ('blue', 'Blue'),
+    ('green', 'Green'),
+    ('black', 'Black'),
+]
 
 class Book(models.Model):
     book_num = models.IntegerField(primary_key=True)
@@ -25,16 +24,22 @@ class Book(models.Model):
                 return book.book_title
 
 
+
 class Feedback(models.Model):
-    userName = models.CharField(max_length=120)
+    Name = models.CharField(max_length=120)
     email = models.EmailField()
-    firstPreference = forms.CharField(label='First Preference', widget=forms.Select(choices=PREFERENCES))
-    secondPreference = forms.CharField(label='Second Preference', widget=forms.Select(choices=PREFERENCES))
-    thirdPreference = forms.CharField(label='Third Preference', widget=forms.Select(choices=PREFERENCES))
-    fourthPreference = forms.CharField(label='Fourth Preference', widget=forms.Select(choices=PREFERENCES))
+    firstPreference = forms.CharField(label='First Preference', widget=forms.Select(choices='TTS'))
+    secondPreference = forms.CharField(label='Second Preference', widget=forms.Select(choices=FAVORITE_COLORS_CHOICES))
+    thirdPreference = forms.CharField(label='Third Preference', widget=forms.Select(choices=FAVORITE_COLORS_CHOICES))
+    fourthPreference = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=FAVORITE_COLORS_CHOICES,
+    )
+    Improvements = models.TextField(blank=True)
     happy = models.BooleanField()
     date = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return self.userName
+        return self.Name
 
