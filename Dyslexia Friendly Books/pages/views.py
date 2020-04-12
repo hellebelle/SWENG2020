@@ -46,12 +46,26 @@ def editor_view(request,  book_num):
 	name = Book.get_book_name(book_num)
 	bookText = strip_headers(load_etext(book_num)).strip()
 	filteredText = removeStopWords(bookText)
+	
+	stopWords = request.session.get('stopWords')
+	if stopWords is None:
+		stopWords = True
+		request.session['stopWords'] = stopWords
 
 	args = {
-		'content': [bookText], 'content2': [filteredText], 'name': name
+		'content': [bookText], 'content2': [filteredText], 'name': name, 'stopWords' : stopWords
 	}
 
 	return render(request, "pages/editor.html", args)
+	
+def stopWordsToggle(request):
+	print("RunToggle")
+	stopWords = request.session.get('stopWords')
+	stopWords = not stopWords
+	request.session['stopWords'] = stopWords
+	print(stopWords)
+
+	return render(request, "pages/editor.html", {'stopWords' : stopWords})
 
 def decison_view(request, book_num):
     args = {

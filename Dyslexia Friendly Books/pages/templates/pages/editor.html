@@ -187,9 +187,20 @@
                             <div style="padding-top: 15px; margin-left: 60px">
                             {% block content %}
                                 <h1 style = "padding-bottom: 2vh; text-align: center; font-weight: bold">{{name}}</h1>
-                                {% for c in content %}
-                                    <p id = "textBox">{{c}}</p>
-                                {% endfor %}
+							
+									{% if stopWords %}
+										{% for c in content %}
+											<p id = "textBox">{{c}}</p>
+											console.log("StopWords");
+										{% endfor %}
+									{% endif %}
+									{% if stopWords == False%}
+										{% for c in content2 %}
+											<p id = "textBox">{{c}}</p>
+											console.log("NoStopWords");
+										{% endfor %}
+									{% endif %}
+			
                             {% endblock %}
                             </div>
                         </div>
@@ -206,6 +217,9 @@
                                     </button>
                                     <button name = "type" id = "syns" value = "syns" type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #1E88E5; color: white">
                                         <span style ="color: white">Synonyms</span>
+                                    </button>
+									<button name = "type" id = "stops" value = "syns" type="button" class="btn btn-outline-success my-2 my-sm-0 " style = "background-color: #1E88E5; color: white">
+                                        <span style ="color: white">Remove Stop Words</span>
                                     </button>
                              </div>
                                 <div id = "test">
@@ -277,6 +291,31 @@
                     }
                 });
             });
+			
+			$("#stops").on('click', function () {
+			
+				console.log("Run1")
+				
+				$.get({type:"GET", url: "http://127.0.0.1:8000/stopWordsToggle/"}, function(responseText, status) {
+				
+					if (status === 'success') {
+                        console.log("success");
+                        console.log(responseText);
+                        if(responseText.size == 0){
+                            console.log("responseText.size == 0")
+                        }
+                        else{
+                            console.log("Else")
+                        }
+
+                    } else {
+                        console.log(responseText);
+                        console.log("failed");
+                    }
+		
+				});
+            });
+			
         });
 
         function getSelectionText() {
